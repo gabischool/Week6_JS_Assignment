@@ -1,0 +1,72 @@
+<!-- DO NOT CHANGE THE HTML -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Gabi News - Latest Technology Updates</title>
+  </head>
+  <body>
+    <div>
+      <header class="header">
+        <div class="header-content">
+          <div class="header-top">
+            <div class="header-top-content">
+              <div class="header-left">
+                <img src="https://plus.gabischool.com/assets/uploads/gabinews.png" alt="Gabi News Logo" class="logo">
+                <div class="header-text">
+                  <p>Your Source for the Latest Technology Updates</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div class="nav-links">
+              <a href="#" data-category="Latest News" class="active">Latest News</a>
+              <a href="#" data-category="Technology">Technology</a>
+              <a href="#" data-category="AI & ML">AI & ML</a>
+              <a href="#" data-category="Web Development">Web Development</a>
+              <a href="#" data-category="Cyber Security">Cyber Security</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Templates -->
+      <template id="featured-template">
+        <div class="featured-article">
+          <article class="news-card featured">
+            <img class="news-image">
+            <div class="news-content">
+              <span class="featured-label">Featured Story</span>
+              <h2 class="news-title"></h2>
+              <div class="news-date"></div>
+              <p class="news-excerpt"></p>
+              <span class="tag"></span>
+            </div>
+          </article>
+        </div>
+      </template>
+
+      <template id="article-template">
+        <article class="news-card">
+          <img class="news-image">
+          <div class="news-content">
+            <h2 class="news-title"></h2>
+            <div class="news-date"></div>
+            <p class="news-excerpt"></p>
+            <span class="tag"></span>
+          </div>
+        </article>
+      </template>
+
+      <!-- News Container -->
+      <div id="news-container">
+      </div>
+    </div>
+    <script src="/dom_challenges.js"></script>
+    <script src="/array_challenges.js"></script>
+  </body>
+</html>
+
+<!-- DO NOT TOUCH THE HTML, LEAVE AS IT IS -->
