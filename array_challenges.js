@@ -45,7 +45,7 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  console.log("HELLO ARRAY")
+  
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (Medium - `.filter`)
