@@ -118,6 +118,8 @@ const newsData = {  // Keep the existing newsData object as is
 };
 
 
+
+
 function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
