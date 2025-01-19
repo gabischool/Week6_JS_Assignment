@@ -118,38 +118,34 @@ const newsData = {  // Keep the existing newsData object as is
 };
 
 
-/*
-  Step 1: Build the `displayArticles` Function ✍️
+function displayArticles(category) {
+  const newsContainer = document.querySelector('#news-container');
+  const articles = newsData[category];
+  
+  // Clear previous content
 
-  - Create a function named `displayArticles` that takes a `category` parameter.
-  - Inside the function:
-    - Clear the current articles displayed on the page.
-    - Retrieve the list of articles for the selected category from the provided data object.
-    - Display the first article as a featured article with its image, title, date, and excerpt.
-    - Display the remaining articles in a grid or list format below the featured article.
-*/
+  
+  // Create featured article
 
-// Write your `displayArticles` function here:
+  
+  // Fill in featured article data
+  
 
+  
+  // Add featured article to container
 
-/*
-  Step 2: Add Event Listeners 🔗
+  
+  // Create grid for remaining articles
 
-  - Select the category links from the navigation bar.
-  - For each link:
-    - Add a click event listener.
-    - In the event listener:
-      - Prevent the page from refreshing.
-      - Highlight the clicked link and remove highlights from others.
-      - Call `displayArticles` with the category associated with the clicked link.
-*/
+  
+  // Create remaining article cards
 
-// Write your event listener logic here:
+  
+  
+  // Add grid to container
+  newsContainer.appendChild(newsGrid);
+}
 
 
-/*
-  Step 3: Display Default Articles 🖥️
-  - Automatically call `displayArticles` with a default category (e.g., "Latest News") when the page loads.
-*/
-
-// Call the function here:
+// Show initial articles
+displayArticles('Latest News');

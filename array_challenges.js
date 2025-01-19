@@ -23,7 +23,7 @@ const movies = [
   
   /*
   
-  Task 1: Movie Titles and Ratings 🎥 (Simple - `.map`)
+  Task 1: Movie Titles and Ratings 🎥 (`.map`)
   
   Your manager asks you to display a list of all movie titles and their ratings 
   for a promotional email campaign.
@@ -48,7 +48,7 @@ const movies = [
   
   
   /*
-  Task 2: Find Highly Rated Movies 🌟 (Medium - `.filter`)
+  Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
   Your customers have requested a list of **highly rated movies** 
   (movies with a rating of 8.0 or higher).
@@ -66,24 +66,6 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
-  
-  
-  /*
-  Task 3: Total Viewer Ratings 📊 (Harder - `.reduce`)
-  
-  Your team wants to calculate the **total viewer ratings** for all the movies 
-  currently **available for rent** (not rented).
-  
-  Steps:
-  1. Use `.filter` to get only the movies where `rented` is `false`.
-  2. Use `.reduce` to sum up the `rating` of the filtered movies.
-  3. Log the total rating as:
-     "The total rating for available movies is: [totalRating]"
-  
-  Expected Output:
-  The total rating for available movies is: 22.4
-  */
-  
-  // ✍️ Solve it here ✍️
-  
+
+
+ 
