@@ -19,7 +19,8 @@
       {/* This is the news grid with the news card nested */}
       <div class="news-grid">
         <article class="news-card">
-          <img class="news-image" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2" alt="SpaceX Successfully Launches New Satellite Constellation">
+        <img class="news-image" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2" alt="SpaceX Successfully Launches New Satellite Constellation">
+
           <div class="news-content">
             <h2 class="news-title">SpaceX Successfully Launches New Satellite Constellation</h2>
             <div class="news-date">March 13, 2024</div>
@@ -28,4 +29,5 @@
           </div>
         </article>
       </div>
+      
 </div>
