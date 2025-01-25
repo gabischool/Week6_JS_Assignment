@@ -192,3 +192,18 @@
     margin-top: 1rem;
     font-weight: 500;
   }
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .news-card {
+    background-color: #161515;
+    color: #f8f0f0;
+  }
+  
+  body.dark-mode .tag {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  

@@ -118,36 +118,122 @@ const newsData = {  // Keep the existing newsData object as is
 };
 
 
-
-
 function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
   // Clear previous content
 
-  
+  newsContainer.innerHTML = '';
   // Create featured article
+ 
+  //featuredArticle
+  const featuredArticle = document.createElement("div")
+  featuredArticle.className = "featured-article"
 
-  
-  // Fill in featured article data
+  const article = document.createElement("article");
+  article.className = "news-card featured"; 
   
 
+  const image = document.createElement("img")
+  image.className = "news-image"
+  image.src = articles[0].image
+  image.alt = articles[0].title
   
-  // Add featured article to container
+
+  const newsContent = document.createElement("div")
+  newsContent.className = "news-content"
+
+  const featuredLabel = document.createElement("span")
+  featuredLabel.className = "featured-label"
+  featuredLabel.textContent ="Featured Story"
+ 
+
+  const newsTitle = document.createElement("h2")
+  newsTitle.className = "news-title"
+  newsTitle.textContent = articles[0].title
+
+  const newsDat = document.createElement("div")
+  newsDat.className = "news-date"
+  newsDat.textContent = articles[0].date
+
+  const newsExcerpt = document.createElement("p")
+  newsExcerpt.className = "news-excerpt"
+  newsExcerpt.textContent = articles[0].excerpt
+
+
+  const tagg = document.createElement("span")
+  tagg.className = "tag"
+  tagg.textContent = articles[0].tag
+
+  article.append(image);
+  article.append(newsContent);
+  newsContent.append(featuredLabel)
+  newsContent.append(newsTitle)
+  newsContent.append(newsDat)
+  newsContent.append(newsExcerpt)
+  newsContent.append(tagg)
+  
+  newsContainer.append(featuredArticle)
+  featuredArticle.append(article)
 
   
   // Create grid for remaining articles
+  const newsGrid = document.createElement("div")
+  newsGrid.className = "news-grid"
 
-  
-  // Create remaining article cards
+  articles.forEach((article, index) => {
+    if(index === 0) return;
 
+    const newsCard = document.createElement("article")
+    newsCard.className = "news-card"
+
+    const imag = document.createElement("img")
+    imag.className = "news-image"
+    imag.src = article.image
+    imag.alt = articles.title
+
+    const newsContents = document.createElement("div")
+    newsContents.className = "news-content"
+
+    const newstitle = document.createElement("h2")
+    newstitle.className = "news-title"
+    newstitle.textContent = articles.title
+
+    const newsdate = document.createElement("div")
+    newsdate.className = "news-date"
+    newsdate.textContent = article.date
+
+    const newsexcerpt = document.createElement("p")
+    newsexcerpt.className = "news-excerpt"
+    newsexcerpt.textContent = article.excerpt
+
+    const tag = document.createElement("span")
+    tag.className = "tag"
+    tag.textContent = article.tag
   
   
-  // Add grid to container
+    newsCard.append(imag)
+    newsCard.append(newsContents)
+    newsContents.append(newstitle)
+    newsContents.append(newsdate)
+    newsContents.append(newsexcerpt)
+    newsContents.append(tag)
+
+    newsGrid.append(newsCard)
+  })
+
   newsContainer.appendChild(newsGrid);
+  
+
 }
+const themeToggle = document.querySelector('#theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 
 
 // Show initial articles
 displayArticles('Latest News');
+
+
