@@ -18,6 +18,21 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+  .search-container {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  #search-bar {
+    width: 60%;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  #search-button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
   
   .header-content {
     max-width: 1200px;
