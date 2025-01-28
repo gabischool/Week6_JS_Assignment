@@ -20,7 +20,12 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
   ];
+  const shabhan = movies.map((movie) =>{
+    return `${movie.title} ${ movie.rating}/10`
+
+  })
   
+console.log(shabhan)
   /*
   
   Task 1: Movie Titles and Ratings 🎥 (`.map`)
@@ -63,7 +68,11 @@ const movies = [
     { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true }
   ]
-  */
+  */const hani= movies.filter(function(Movie){
+    return Movie.rating >= 8.0
+  })
+  console.log(hani)
+
   
   // ✍️ Solve it here ✍️
 
