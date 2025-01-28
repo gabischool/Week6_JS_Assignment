@@ -45,6 +45,10 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+  const movieMania = movies.map(function(movie){
+    return `${movie.title} - Rating: ${movie.rating}/10`;
+  });
+  console.log(movieMania);
   
   
   /*
@@ -66,6 +70,11 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+  
+  const highlyRatedMovies = movies.filter(function(movies){
+    return movies.rating >= 8.0;
+  })
+  console.log(highlyRatedMovies);
 
 
  
