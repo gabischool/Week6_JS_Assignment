@@ -126,28 +126,117 @@ function displayArticles(category) {
   
   // Clear previous content
 
+    newsContainer.innerHTML = '';
   
-  // Create featured article
+    
+    // Create featured article
+    const featureArticle = document.createElement("div");
+    featureArticle.className = "featured-article"
+    
+    
+ 
+    // Fill in featured article data
+    const featureArticleElement = document.createElement("article");
+    featureArticleElement.className = "news-card featured"
+    
+    const newImage = document.createElement("img");
+    newImage.className = "news-image"
+    newImage.src = articles[1].image
+    featureArticleElement.appendChild(newImage)
+    
+    const newsContent = document.createElement("div");
+    newsContent.className = "news-content"
+    featureArticleElement.appendChild(newsContent);
 
-  
-  // Fill in featured article data
-  
+    const span = document.createElement("span");
+    span.className = "featured-label";
+    newsContent.appendChild(span)
 
-  
-  // Add featured article to container
+    const h2 = document.createElement("h2");
+    h2.className = "news-title"
+    h2.textContent = articles[0].title
+    newsContent.appendChild(h2)
 
-  
-  // Create grid for remaining articles
+    const newDate = document.createElement("div");
+    newDate.className = "ews-date"
+    newDate.textContent = articles[0].date
+    newsContent.appendChild(newDate)
 
-  
-  // Create remaining article cards
-
-  
-  
-  // Add grid to container
-  newsContainer.appendChild(newsGrid);
-}
+    const pr = document.createElement("p");
+    pr.className = "news-excerpt"
+    pr.textContent = articles[0].excerpt
+    newsContent.appendChild(pr)
 
 
-// Show initial articles
-displayArticles('Latest News');
+    const span1 = document.createElement("span");
+    span1.className = "tag"
+    span1.textContent = articles[0].tag
+    newsContent.appendChild(span1);
+
+   featureArticle.appendChild(featureArticleElement);
+  
+    
+    
+    // Add featured article to container
+    newsContainer.appendChild(featureArticle);
+   
+    
+    
+    // Create grid for remaining articles
+    const newsGrid = document.createElement("div");
+     newsGrid.className = "news-grid"
+    
+    articles.slice(1).forEach(function(Shabhaan){
+     const artcleCard = document.createElement("article");
+     artcleCard.className = "news-card";
+
+     const img = document.createElement("img");
+     img.className = "news-image";
+     img.src = Shabhaan.image;
+     artcleCard.appendChild(img);
+
+     const newsContent = document.createElement("div");
+     newsContent.className = "news-content";
+    
+     const title2 = document.createElement("h2");
+     title2.className = "news-title"
+     title2.textContent = Shabhaan.title
+    newsContent.appendChild(title2);
+
+
+    const newDates = document.createElement("div");
+    newDates.className = "news-date"
+    newDates.textContent = Shabhaan.date
+    newsContent.appendChild(newDates)
+
+    const p = document.createElement("p");
+    p.className = "news-excerpt"
+    p.textContent = Shabhaan.excerpt
+    newsContent.appendChild(p)
+
+
+    const span2 = document.createElement("span");
+    span2.className = "tag"
+    span2.textContent = Shabhaan.tag
+    newsContent.appendChild(span2);
+
+     artcleCard.appendChild(newsContent);
+
+     newsGrid.appendChild(artcleCard);
+
+    })
+    
+    // Create remaining article cards
+  
+    
+    
+    // Add grid to container
+    newsContainer.appendChild(newsGrid);
+  }
+  
+  
+  // Show initial articles
+  displayArticles('Latest News');
+  
+  
+  
