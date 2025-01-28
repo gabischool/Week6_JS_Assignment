@@ -58,6 +58,21 @@
     font-weight: 400;
     white-space: nowrap;
   }
+  .search-container {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  #search-bar {
+    width: 60%;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  #search-button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
   
   .main-nav {
     background: rgba(255, 255, 255, 0.03);
