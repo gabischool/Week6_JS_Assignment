@@ -45,6 +45,15 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+  const ratedMovies = movies.map((newMovies) => {
+  
+    return  `title ${newMovies.title}, rating: ${newMovies.rating}`
+    
+  });
+  
+  console.log(ratedMovies);
+    
   
   
   /*
@@ -68,4 +77,10 @@ const movies = [
   // ✍️ Solve it here ✍️
 
 
- 
+  const highestRatings = movies.filter((item)=> {
+  
+    return item.rating >= 8.0
+  })
+  
+  console.log(highestRatings);
+  
