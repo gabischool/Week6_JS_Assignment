@@ -77,4 +77,10 @@ const movies = [
   // ✍️ Solve it here ✍️
 
 
- 
+  const highestRatings = movies.filter((item)=> {
+  
+    return item.rating >= 8.0
+  })
+  
+  console.log(highestRatings);
+  
