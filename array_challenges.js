@@ -20,6 +20,7 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
   ];
+
   
   /*
   
@@ -45,7 +46,14 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
+  const movieTitlesAndRatings = movies.map((bilal) =>{
+
+    return `${bilal.title}  Rating:${bilal.rating} `
+  })
+
+  console.log(movieTitlesAndRatings)
+
+
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
@@ -67,5 +75,9 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
+const HighRateMovies = movies .filter(function( item){
 
- 
+return item.rating  >= 8.0
+}
+)
+ console.log(HighRateMovies)
