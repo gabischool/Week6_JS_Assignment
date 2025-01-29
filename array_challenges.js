@@ -45,6 +45,15 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+  const ratedMovies = movies.map((newMovies) => {
+  
+    return  `title ${newMovies.title}, rating: ${newMovies.rating}`
+    
+  });
+  
+  console.log(ratedMovies);
+    
   
   
   /*
