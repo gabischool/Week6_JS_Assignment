@@ -122,32 +122,109 @@ const newsData = {  // Keep the existing newsData object as is
 
 function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
+  newsContainer.innerHTML = ""; // Clear previous articles
+  
   const articles = newsData[category];
+  const featuredArticle = document.createElement("div");
+  featuredArticle.className = "featured-article";
   
-  // Clear previous content
-
+  const newCardFeatured = document.createElement("article");
+  newCardFeatured.className = "news-card featured";
   
-  // Create featured article
-
+  const newImage = document.createElement("img");
+  newImage.className = "news-image";
+  newImage.src = articles[0].image;
+  newImage.alt = articles[0].title;
   
-  // Fill in featured article data
+  const newsContent = document.createElement("div");
+  newsContent.className = "news-content";
   
-
+  const featuredLabel = document.createElement("span");
+  featuredLabel.className = "featured-label";
+  featuredLabel.textContent = "Featured Story";
   
-  // Add featured article to container
-
+  const newsTitle = document.createElement("h2");
+  newsTitle.className = "news-title";
+  newsTitle.textContent = articles[0].title;
   
-  // Create grid for remaining articles
-
+  const newsDate = document.createElement("div");
+  newsDate.className = "news-date";
+  newsDate.textContent = articles[0].date;
   
-  // Create remaining article cards
-
+  const newsExcerpt = document.createElement("p");
+  newsExcerpt.className = "news-excerpt";
+  newsExcerpt.textContent = articles[0].excerpt;
   
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent = articles[0].tag;
   
-  // Add grid to container
-  newsContainer.appendChild(newsGrid);
+  newsContent.append(featuredLabel);
+  newsContent.append(newsTitle);
+  newsContent.append(newsDate);
+  newsContent.append(newsExcerpt);
+  newsContent.append(tag);
+  
+  newCardFeatured.append(newImage);
+  newCardFeatured.append(newsContent);
+  
+  featuredArticle.append(newCardFeatured);
+  newsContainer.append(featuredArticle);
+  
+  // Create news grid section
+  const newsGrid = document.createElement("div");
+  newsGrid.className = "news-grid";
+  
+  articles.slice(1).forEach(article => {
+    const newsCard = document.createElement("article");
+    newsCard.className = "news-card";
+    
+    const img = document.createElement("img");
+    img.className = "news-image";
+    img.src = article.image;
+    img.alt = article.title;
+    
+    const content = document.createElement("div");
+    content.className = "news-content";
+    
+    const title = document.createElement("h2");
+    title.className = "news-title";
+    title.textContent = article.title;
+    
+    const date = document.createElement("div");
+    date.className = "news-date";
+    date.textContent = article.date;
+    
+    const excerpt = document.createElement("p");
+    excerpt.className = "news-excerpt";
+    excerpt.textContent = article.excerpt;
+    
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = article.tag;
+    
+    content.append(title, date, excerpt, tag);
+    newsCard.append(img, content);
+    newsGrid.append(newsCard);
+  });
+  
+  newsContainer.append(newsGrid);
 }
 
-
-// Show initial articles
-displayArticles('Latest News');
+// Add click handlers to navigation links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Remove active class from all links
+      document.querySelectorAll('.nav-links a').forEach(l => {
+        l.classList.remove('active');
+      });
+      
+      // Add active class to clicked link
+      link.classList.add('active');
+      
+      // Show articles for selected category
+      displayArticles(link.dataset.category);
+    });
+  });
