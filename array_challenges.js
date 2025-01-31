@@ -47,7 +47,7 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-  const displayMovieList = movies.map(movie => {
+  const displayMovieList = movies.map((movie) => {
     return `${movie.title} - Rating: ${movie.rating}/10`;
     });
     
@@ -74,7 +74,9 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-  const highlyRatedMovies = movies.filter(movie => movie.rating >= 8.0);
+  const highlyRatedMovies = movies.filter((movie) => {
+    return movie.rating >= 8.0
+  });
 
   // Log the resulting array
   console.log(highlyRatedMovies);

@@ -123,31 +123,86 @@ const newsData = {  // Keep the existing newsData object as is
 function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
+    
   // Clear previous content
-
-  
+  newsContainer.innerHTML = '';
+    
   // Create featured article
+  const featuredArticle = document.createElement('div');
+ // featuredArticle.classList.add("featured-article", "fatured-quiz");
+  featuredArticle.className = "featured-article";
+  const newsCardFeatured = document.createElement('article');
+  newsCardFeatured.className = "news-card featured";
+  const newsImage = document.createElement("img");
+  newsImage.className = "news-image";
+  const newsContent = document.createElement("newsContent");
+  newsContent.className = "news-content";
+  const featuredLabel = document.createElement("span");
+  featuredLabel.className = "featured-label";
+  const newsTitle = document.createElement("h2");
+  newsTitle.className = "news-title";
+  const newsDate = document.createElement("div");
+  newsDate.className = "news-date";
+  const newsExcerpt = document.createElement("p");
+  newsExcerpt.className = "news-excerpt";
+  const tag = document.createElement("span");
+  tag.className = "tag";
 
-  
   // Fill in featured article data
-  
+  newsImage.src = articles[0].image
+  newsImage.alt = articles[0].title
+  featuredLabel.textContent = category
+  newsTitle.textContent = articles[0].title
+  newsDate.textContent = articles[0].date
+  newsExcerpt.textContent = articles[0].excerpt
+  tag.textContent = articles[0].tag
 
-  
+    
   // Add featured article to container
+  newsContent.append (featuredLabel, newsTitle, newsDate, newsExcerpt, tag);
+  newsCardFeatured.append (newsImage, newsContent);
+  featuredArticle.appendChild (newsCardFeatured);
+  newsContainer.appendChild (featuredArticle);
 
   
-  // Create grid for remaining articles
+    // Create grid for remaining articles
+    const newsGrid = document.createElement('div');
+    newsGrid.className = "news-grid"
+    // Create remaining article cards
+    articles.slice(1).forEach(element => {
+    const gridNewsCard = document.createElement('article');
+    gridNewsCard.className = "news-card";
+    const gridNewsImage = document.createElement('img');
+    gridNewsImage.className = "news-image";
+    const gridNewsContent = document.createElement('div');
+    gridNewsContent.className = "news-content";
+    const gridNewsTitle = document.createElement('h2');
+    gridNewsTitle.className = "news-title";
+    const gridNewsDate = document.createElement('div');
+    gridNewsDate.className = "news-date";
+    const gridNewsExcerpt = document.createElement('p');
+    gridNewsExcerpt.className = "news-excerpt";
+    const gridTag = document.createElement('span');
+    gridTag.className = "tag";
+    // Fill in article data
+    gridNewsImage.src = element.image;
+    gridNewsImage.alt = element.title;
+    gridNewsContent.textContent = category;
+    gridNewsTitle.textContent = element.title;
+    gridNewsDate.textContent = element.date;
+    gridNewsExcerpt.textContent = element.excerpt;
+    gridTag.textContent = element.excerpt;
+    // Add article card to grid
+    gridNewsContent.append (gridNewsTitle, gridNewsDate, gridNewsExcerpt, gridTag);
+    gridNewsCard.append (gridNewsImage, gridNewsContent);
+    newsGrid.appendChild (gridNewsCard);
 
-  
-  // Create remaining article cards
-
-  
-  
+  });
+    
   // Add grid to container
   newsContainer.appendChild(newsGrid);
+  
 }
-
-
+  
 // Show initial articles
-displayArticles('Latest News');
+  displayArticles('Latest News');
