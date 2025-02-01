@@ -125,9 +125,12 @@ function displayArticles(category) {
   const articles = newsData[category];
   
   // Clear previous content
+  newsContainer.innerHTML = ".";
 
   
   // Create featured article
+  const featuredArticle = document.querySelector('#news-container');
+  featuredArticle.className = 'featured-article';
 
   
   // Fill in featured article data
