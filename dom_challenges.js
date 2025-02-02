@@ -135,7 +135,7 @@ function displayArticles(category) {
   newsCardFeatured.className = "news-card featured";
   const newsImage = document.createElement("img");
   newsImage.className = "news-image";
-  const newsContent = document.createElement("newsContent");
+  const newsContent = document.createElement("div");
   newsContent.className = "news-content";
   const featuredLabel = document.createElement("span");
   featuredLabel.className = "featured-label";
