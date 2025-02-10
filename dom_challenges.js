@@ -119,35 +119,168 @@ const newsData = {  // Keep the existing newsData object as is
 
 
 
-
 function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
-  // Clear previous content
 
+    
+    // Clear previous content
+    newsContainer.innerHTML = '';
   
-  // Create featured article
-
   
-  // Fill in featured article data
   
-
+    
+    //Create featured article
+    const featuredArticle = document.createElement("div");
+    featuredArticle.className = "featured-article";
   
-  // Add featured article to container
-
+   
   
-  // Create grid for remaining articles
-
+    
+    // Fill in featured article data
+    
   
-  // Create remaining article cards
-
+    
+    // Add featured article to container
+    const newsCard = document.createElement("article");
+    newsCard.className = "news-card featured"
+  
+    const newsImage = document.createElement("img");
+    newsImage.src = articles[0].image;
+    newsImage.alt = articles[0].title;
+    newsImage.className = "news-image";
+    
+    const newsContent = document.createElement("div");
+    newsContent.className = "news-content";
+  
+    const featuredLabel = document.createElement("span")
+    featuredLabel.className = "featured-label";
+    featuredLabel.textContent = "Featured Story";
+  
+    const newsTitle = document.createElement("h2");
+    newsTitle.className = "news-title";
+    newsTitle.textContent = articles[0].title; 
+  
+    const newsDate = document.createElement("div");
+    newsDate.className =  "news-date";
+    newsDate.textContent = articles[0].date;
+  
+    const newsExcerpt = document.createElement("p");
+    newsExcerpt.className = "news-excerpt";
+    newsExcerpt.textContent = articles[0].excerpt;
+  
+    const newstag = document.createElement("span")
+    newstag.className = "tag";
+    newstag.textContent = articles[0].tag;
+  
+  // Add grid to container
+  
+  newsContainer.appendChild(featuredArticle);
+  
+  featuredArticle.appendChild(newsCard)
+  
+  newsCard.appendChild(newsImage);
+  newsCard.appendChild(newsContent);
+  
+  newsContent.appendChild(featuredLabel);
+  newsContent.appendChild(newsTitle);
+  newsContent.appendChild(newsDate);
+  newsContent.appendChild(newsExcerpt);
+  newsContent.appendChild(newstag);
+  
+    
+    // Create grid for remaining articles
+  const newsGrid = document.createElement("div");
+  newsGrid.className = ("news-grid");
+  
+  articles.forEach((article, index) => {
+    if (index === 0) return;   
+  
+    const gridCard = document.createElement("article");
+    gridCard.className = "news-card";
+    
+    // Create remaining article cards
+    
+  
+    const gridImage = document.createElement("img");
+    gridImage.src = article.image;
+    gridImage.alt = article.title;
+    gridImage.className = "news-image";
+  
+  
+    const gridContent = document.createElement("div");
+    gridContent.className = "news-content";
+  
+  
+    const gridtitle = document.createElement("h2");
+    gridtitle.className = "news-title";
+    gridtitle.textContent = articles.title;
+  
+  
+    const gridDate = document.createElement("div");
+    gridDate.className = "news-date";
+    gridDate.textContent = article.date;
+  
+  
+    const gridexcerpt = document.createElement("p");
+    gridexcerpt.className = "news-excerpt";
+    gridexcerpt.textContent = article.excerpt;
+  
+  
+    const gridTag = document.createElement ("span")
+    gridTag.className = "tag";
+    gridTag.textContent = article.tag;
+  
   
   
   // Add grid to container
+  
+    gridCard.appendChild(gridImage);
+    gridCard.appendChild(gridContent);
+    gridContent.appendChild(gridtitle);
+    gridContent.appendChild(gridDate);
+    gridContent.appendChild(gridexcerpt);
+    gridContent.appendChild(gridTag);
+  
+  
+  
+  
+    newsGrid.appendChild(gridCard);
+  
+  });
+  
+   
+    
   newsContainer.appendChild(newsGrid);
-}
-
-
-// Show initial articles
-displayArticles('Latest News');
+  
+  }
+  
+  
+  // Show initial articles
+  document.addEventListener('DOMContentLoaded', () => {
+  displayArticles('Latest News');
+  });
+  
+  
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      
+      document.querySelectorAll('.nav-links a').forEach(l => {
+        l.classList.remove('active');
+      });
+      
+      link.classList.add('active');
+      
+      displayArticles(link.dataset.category);
+    });
+  });
+  
+  document.getElementById('search-button').addEventListener('click', () => {
+    const query = document.getElementById('search-bar').value.toLowerCase();
+    const filteredArticles = [];
+  });
+  
+  displayArticles('Latest News');

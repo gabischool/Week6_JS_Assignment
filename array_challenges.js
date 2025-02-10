@@ -27,7 +27,6 @@ const movies = [
   
   Your manager asks you to display a list of all movie titles and their ratings 
   for a promotional email campaign.
-  
   Steps:
   1. Use `.map` to create a new array where each item is a string in this format:
      "[title] - Rating: [rating]/10"
@@ -45,8 +44,9 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
-  
+  const movieTitlesAndRatings = movies.map(movie => `${movie.title} - Rating: ${movie.rating}/10`);
+
+  console.log(movieTitlesAndRatings)
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
@@ -67,5 +67,7 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-
- 
+const highlyRatedMovies = movies.filter((item) => {
+ return item.rating >= 8.0
+})
+ console.log(highlyRatedMovies);
