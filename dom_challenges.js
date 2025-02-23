@@ -1,5 +1,6 @@
+
 // News articles data organized by category
-const newsData = {  // Keep the existing newsData object as is
+export const newsData = {
   'Latest News': [
     {
       title: "GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model",
@@ -117,37 +118,33 @@ const newsData = {  // Keep the existing newsData object as is
   ]
 };
 
-
-
-
-function displayArticles(category) {
+export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
-  // Clear previous content
+  // 1. Clear previous content
+  
+  // 2. Create container elements
+  
+  // 3. Create article element
+  
+  // 4. Create and setup image
+  
+  // 5. Create content container
+  
+  // 6. Create featured label
+  
+  // 7. Create title
+  
+  // 8. Create date
+  
+  // 9. Create excerpt
+  
+  // 10. Create tag
+  
+  // 11. Assemble the elements
 
   
-  // Create featured article
-
   
-  // Fill in featured article data
-  
-
-  
-  // Add featured article to container
-
-  
-  // Create grid for remaining articles
-
-  
-  // Create remaining article cards
-
-  
-  
-  // Add grid to container
-  newsContainer.appendChild(newsGrid);
+  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
-
-
-// Show initial articles
-displayArticles('Latest News');
