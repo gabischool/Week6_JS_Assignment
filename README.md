@@ -20,7 +20,7 @@ This week's assignment focuses on **advanced array methods** (`.map`, `.filter`)
 
 ⚠️ **Warning**:
 
-- **Do not change or touch the `index.html` and `nav_actions.js` files**
+- **Do not change or touch the `index.html` file**
 - All modifications should be done in `array_challenges.js`, `dom_challenges.js` files only.
 
 ---
@@ -40,7 +40,6 @@ This week's assignment focuses on **advanced array methods** (`.map`, `.filter`)
 - Open the `dom_challenges.js` file.
 - Follow the tasks to:
   1. Build the `displayArticles` function to dynamically display articles from the `newsData` object based on their category.
-  2. Add event listeners to navigation links to load articles for the selected category.
 - Use the GIF below as a reference to see how the final website should look.
 
 ---
@@ -66,5 +65,13 @@ Below is a preview of how your DOM challenge should look after completion:
 - Once done, submit your repository link through the student portal.
 
 ---
+
+## STRETCH GOALS
+
+If you finish the main tasks early, consider these stretch goals:
+
+1. Create footer area with DOM
+2. Find free and open API with news articles and use that API instead of the provided data.
+3. Put the website online using either Netlify or GitHub Pages.
 
 Good luck, and enjoy coding! 🚀
