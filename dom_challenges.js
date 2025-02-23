@@ -147,7 +147,6 @@ export function displayArticles(category) {
   
   // 11. Assemble the elements
 
-   // Clear previous content
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
