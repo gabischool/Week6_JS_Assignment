@@ -118,6 +118,9 @@ export const newsData = {
   ]
 };
 
+
+// YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
+
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
@@ -144,7 +147,15 @@ export function displayArticles(category) {
   
   // 11. Assemble the elements
 
-  
+   // Clear previous content
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
+
+
+// DO NOT CHANGE THIS
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultCategory = 'Latest News';  // Define the default category
+  displayArticles(defaultCategory);  // Display articles for the default category
+  document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
+});
