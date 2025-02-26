@@ -1,4 +1,4 @@
-
+ 
 // News articles data organized by category
 export const newsData = {
   'Latest News': [
@@ -126,29 +126,48 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
+  newsContainer.innerHTML = '';
   // 2. Create container elements
-  
+   const newsArticleContainer = document.createElement("div")
+   newsArticleContainer.className ="featured-article"
   // 3. Create article element
-  
+  const newsArticleElement =document.createElement("article")
+  newsArticleElement.className="news-card featured"
   // 4. Create and setup image
-  
+  const newsArticleImage= document.createElement("img")
+  newsArticleImage.src = articles[0].image
+  newsArticleImage.alt=articles[0].name
+  newsArticleImage.className= "news-image" 
   // 5. Create content container
-  
+ const newsArticleContent= document.createElement("div")
+ newsArticleContent.className= "news-content"
+
   // 6. Create featured label
-  
+  const newsFeaturedLabel= document.createElement("span")
+  newsFeaturedLabel.className= "featured-label"
   // 7. Create title
-  
+  const newsTitle=document.createElement("h2")
+  newsTitle.className= "news-title"
+  newsTitle.textContent=articles[0].title
   // 8. Create date
-  
+  const newsDate= document.createElement("div")
+  newsDate.className= "news-date"
+  newsDate.textContent=articles[0].date
   // 9. Create excerpt
-  
+  const newsExcerpt= document.createElement("p")
+  newsExcerpt.className="news-excerpt"
+  newsExcerpt.textContent=articles[0].excerpt
   // 10. Create tag
-  
+  const newsTag=document.createElement("span")
+  newsTag.className= "tag"
   // 11. Assemble the elements
 
+  newsArticleContainer.append(newsArticleElement)
+  newsArticleElement.append(newsArticleImage)
+  newsArticleContent.append(newsFeaturedLabel,newsTitle,newsDate,newsExcerpt,newsTag)
   
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  newsContainer.insertBefore( newsArticleContainer, newsContainer.firstChild);
+  
 }
 
 
