@@ -126,29 +126,55 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+
+  newsContainer.innerHTML = ' ';
   
   // 2. Create container elements
-  
+  const newsArticleContainer = document.createElement("div")
+  newsArticleContainer.className = "featured-article"
   // 3. Create article element
+  const articleElement = document.createElement("article")
+  articleElement.className = "news-card featured"
   
   // 4. Create and setup image
+
+const ContainerImage = document.createElement("img")
+ContainerImage.src = articles[0].image
+ContainerImage.alt = articles[0].name
+ContainerImage.className = "news-image"
   
   // 5. Create content container
+  const newsContent = document.createElement("div")
+  newsContent.className = "news-content"
   
   // 6. Create featured label
-  
+  const featuredLabel = document.createElement("span")
+  featuredLabel.className = "featured-label"
+
   // 7. Create title
-  
+  const articleTitle = document.createElement("h2")
+  articleTitle.className = "news-title"
+  articleTitle.textContent = articles[0].title
   // 8. Create date
+  const date = document.createElement("div")
+  date.className = "news-date"
+  date.textContent = articles[0].date
   
   // 9. Create excerpt
+  const excerpt = document.createElement("p")
+  excerpt.className = "news-excerpt"
+  excerpt.textContent = articles[0].excerpt
   
   // 10. Create tag
+  const tag = document.createElement("span")
+  tag.className = "tag"
   
   // 11. Assemble the elements
-
+  newsArticleContainer.append(articleElement)
+  articleElement.append(ContainerImage)
+  newsContent.append(featuredLabel,articleTitle,date,excerpt,tag)
   
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  newsContainer.insertBefore(newsArticleContainer, newsContainer.firstChild);
 }
 
 
@@ -158,3 +184,4 @@ document.addEventListener('DOMContentLoaded', () => {
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
 });
+
