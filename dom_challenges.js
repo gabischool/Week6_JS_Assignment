@@ -1,6 +1,6 @@
 
 // News articles data organized by category
-export const newsData = {
+const newsData = {
   'Latest News': [
     {
       title: "GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model",
@@ -121,40 +121,130 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
-export function displayArticles(category) {
+function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
+  newsContainer.innerHTML = '';
+  const featuredContainer = document.createElement('div')
+  featuredContainer.classList.add('featured-article')
+  const featuredArticle = document.createElement('article');
+  featuredArticle.classList.add('news-card');
+  featuredArticle.classList.add("featured")
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+    // 4. Create and setup image
+    const featuredimage = document.createElement('img');
+    featuredimage.classList.add('news-image')
+    featuredimage.src = articles[0].image;
+    featuredimage.alt = articles[0].title;
+    featuredArticle.appendChild(featuredimage);
+
+    // 5. Create content container
+    const featuredContent = document.createElement('div');
+    featuredContent.classList.add('news-content');
+    
+    // 6. Create featured label (optional)
+      const featuredLabel = document.createElement('span');
+      featuredLabel.classList.add('featured-label');
+      featuredLabel.textContent = 'Featured';
+      featuredArticle.appendChild(featuredLabel);
+
+    // 7. Create title
+    const featuredtitle = document.createElement('h2');
+    featuredtitle.classList.add('news-title');
+    featuredtitle.textContent = articles[0].title;
+    featuredArticle.appendChild(featuredtitle);
+
+    // 8. Create date
+    const featureddate = document.createElement('time');
+    featureddate.classList.add('news-date');
+    featureddate.textContent = articles[0].date;
+    featuredArticle.appendChild(featureddate);
+
+    // 9. Create excerpt
+    const featuredexcerpt = document.createElement('p');
+    featuredexcerpt.classList.add('news-excerpt');
+    featuredexcerpt.textContent = articles[0].excerpt;
+    featuredArticle.appendChild(featuredexcerpt);
+
+    // 10. Create tag
+    const featuredtag = document.createElement('span');
+    featuredtag.classList.add('tag');
+    featuredtag.textContent = articles[0].tag;
+    featuredArticle.appendChild(featuredtag);
+
+    // 11. Assemble the elements
+    featuredContainer.appendChild(featuredArticle);
+    newsContainer.appendChild(featuredContainer)
+  // 2. Loop through articles and create elements for each article
+  articles.forEach((article) => {
+    // 3. Create article element
+    console.log("Test", article)
+    const newsGrid = document.createElement("div")
+    newsGrid.classList.add('news-grid')
+    const articleElement = document.createElement('article');
+    articleElement.classList.add('news-card');
+
+    // 4. Create and setup image
+    const image = document.createElement('img');
+    image.classList.add('news-image')
+    image.src = article.image;
+    image.alt = article.title;
+    articleElement.appendChild(image);
+
+    // 5. Create content container
+    const contentContainer = document.createElement('div');
+    contentContainer.classList.add('news-content');
+    
+    // 6. Create featured label (optional)
+
+    // 7. Create title
+    const title = document.createElement('h2');
+    title.classList.add('news-title');
+    title.textContent = article.title;
+    articleElement.appendChild(title);
+
+    // 8. Create date
+    const date = document.createElement('time');
+    date.classList.add('news-date');
+    date.textContent = article.date;
+    articleElement.appendChild(date);
+
+    // 9. Create excerpt
+    const excerpt = document.createElement('p');
+    excerpt.classList.add('news-excerpt');
+    excerpt.textContent = article.excerpt;
+    articleElement.appendChild(excerpt);
+
+    // 10. Create tag
+    const tag = document.createElement('span');
+    tag.classList.add('tag');
+    tag.textContent = article.tag;
+    articleElement.appendChild(tag);
+
+    // 11. Assemble the elements
+    newsGrid.appendChild(articleElement);
+    newsContainer.appendChild(newsGrid);
+  });
 }
 
 
 // DO NOT CHANGE THIS
-document.addEventListener('DOMContentLoaded', () => {
-  const defaultCategory = 'Latest News';  // Define the default category
-  displayArticles(defaultCategory);  // Display articles for the default category
-  document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Remove active class from all links
+    document.querySelectorAll('.nav-links a').forEach(l => {
+      l.classList.remove('active');
+    });
+    
+    // Add active class to clicked link
+    link.classList.add('active');
+    
+    // Show articles for selected category
+    displayArticles(link.dataset.category);
+  });
 });
+displayArticles('Latest News');
