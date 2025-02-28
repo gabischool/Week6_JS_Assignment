@@ -22,8 +22,10 @@ export const newsData = {
       excerpt: "The tech giant's latest hardware release promises to transform how we interact with digital content through advanced spatial computing.",
       image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d",
       tag: "Hardware"
-    }
-  ],
+      }
+    ]
+  ,
+
   'Technology': [
     {
       title: "Revolutionary Quantum Computer Achieves New Milestone",
@@ -123,28 +125,49 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+  newsContainer.innerHTML = '';
   
+  // 2. Create featured article
+  const featuredArticle = document.createElement('div');
+  featuredArticle.classList.add('featured-article');
   // 2. Create container elements
-  
+  const newsArticlecContainer = document.createElement("div");
+  newsArticlecContainer.className = "featured-article";
   // 3. Create article element
-  
+  const articleElement = document.createElement("article");
+  articleElement.className = "news-cards featured";
   // 4. Create and setup image
-  
+  const containerimage = document.createElement("img");
+  containerimage.src = articles[0].image;
+  containerimage.alt = articles[0].name;
+  containerimage.className = "news-image";
   // 5. Create content container
-  
+  const newsContent = document.createElement("div");
+  newsContent.className = "news-content";
   // 6. Create featured label
-  
+  const featuredLabel = document.createElement("span");
+  featuredLabel.className = "featured-label";
   // 7. Create title
-  
+  const articleTitle = document.createElement("h2");
+  articleTitle.className = "news-title";
+  articleTitle.textContent = articles[0].title;
   // 8. Create date
-  
+  const date = document.createElement("div");
+  date.className = "news-date";
+  date.textContent = articles[0].date;
   // 9. Create excerpt
-  
+  const excerpt = document.createElement("p");
+  excerpt.className = "news-excerpt";
+  excerpt.textContent = articles[0].excerpt;
   // 10. Create tag
-  
+  const tag = document.createElement("span");
+  tag.className = "tag";
   // 11. Assemble the elements
+newsArticlecContainer.append(articleElement);
+articleElement.append(containerimage);
+newsContent.append(featuredLabel, articleTitle, date, excerpt, tag);
+  
+  newsContainer.insertBefore(newsArticlecContainer, newsContainer.firstChild);
+};
 
   
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
-}
