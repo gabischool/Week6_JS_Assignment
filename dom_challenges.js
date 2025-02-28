@@ -1,6 +1,7 @@
 
 // News articles data organized by category
 export const newsData = {
+
   'Latest News': [
     {
       title: "GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model",
@@ -121,30 +122,86 @@ export const newsData = {
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
+  console.log(articles);
   // 1. Clear previous content
-  
+  function clearContent() {
+    newsContainer.innerHTML = '';
+  }
+
+  clearContent();
+
   // 2. Create container elements
+  const container = document.createElement('div');
+  container.classList.add('news-container');
+  newsContainer.appendChild(container);
+
+  
+  
   
   // 3. Create article element
+  const article = newsData[category];
+   console.log(article);
+  
+  const featuredArticle = document.createElement('article');
+  featuredArticle.classList.add('featured-article');
+
+
   
   // 4. Create and setup image
+  const image = document.createElement('img');
+  image.src = article[0].image;
+  image.alt = article[0].title;
+  image.classList.add('featured-image');
+  featuredArticle.appendChild(image);
+
   
   // 5. Create content container
+  const contentContainer = document.createElement('div');
+  contentContainer.classList.add('content-container');
+  featuredArticle.appendChild(contentContainer);
+  
+
   
   // 6. Create featured label
+  const featuredLabel = document.createElement('span');
+  featuredLabel.classList.add('featured-label');
+  featuredLabel.textContent = 'Featured';
+  contentContainer.appendChild(featuredLabel);
   
   // 7. Create title
+  const title = document.createElement('h2');
+  title.classList.add('featured-title');
+  title.textContent = article[0].title;
+  contentContainer.appendChild(title);
   
   // 8. Create date
+  const date = document.createElement('p');
+  date.classList.add('featured-date');
+  date.textContent = article[0].date;
+  contentContainer.appendChild(date);
   
   // 9. Create excerpt
+  const excerpt = document.createElement('p');
+  excerpt.classList.add('featured-excerpt');
+  excerpt.textContent = article[0].excerpt;
+  contentContainer.appendChild(excerpt);
   
   // 10. Create tag
+  const tag = document.createElement('span');
+  tag.classList.add('featured-tag');
+  tag.textContent = article[0].tag;
+  contentContainer.appendChild(tag);
   
   // 11. Assemble the elements
+newsContainer.appendChild(image);
+newsContainer.appendChild(title);
+newsContainer.appendChild(date);
+newsContainer.appendChild(excerpt);
+newsContainer.appendChild(tag);
+
 
   
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
+console.log(newsData);
