@@ -126,29 +126,88 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
+ newsContainer.innerhtml="";
   // 2. Create container elements
-  
+  const featuredArticle = document.createElement ("div")
+
+featuredArticle.className="featured-article"
+
+
   // 3. Create article element
-  
+  const article = document.createElement ("article")
+
+  article.className = "news-card featured";
+
   // 4. Create and setup image
-  
+  const image = document.createElement ("img")
+
+  image.className = "news-image" ;
+
+  image.src = articles[0].image
+  image.alt = articles[0].title
+
   // 5. Create content container
-  
+  const newscontent = document.createElement("div")
+
+  newscontent.className = "news-content"
+
+
+
   // 6. Create featured label
   
+  const featurelable = document.createElement ("span")
+
+featurelable.className = "featured-label"
+
   // 7. Create title
+
+  const newstitle = document.createElement ("h2")
   
+newstitle.className = "news-title"
+
+newstitle.textContent = articles[0].title
+
   // 8. Create date
   
+const newsdate = document.createElement ("div")
+
+newsdate.className="news-date"
+
+newsdate.textContent = articles[0].date
+
   // 9. Create excerpt
-  
+  const excerpt = document.createElement ("p")
+
+   excerpt.className = "news-excerpt"
+
+   excerpt.textContent = articles[0].excerpt
+
   // 10. Create tag
-  
+  const tag = document.createElement ("span")
+
+  tag.className = "tag"
+
+  tag.textContent = articles[0].tag
+
   // 11. Assemble the elements
 
+ featuredArticle.append(article)
+
+article.append(image)
+
+article.append(newscontent)
+
+newscontent.append(newstitle)
+
+newscontent.append(tag)
+
+newscontent.append(excerpt)
   
+newscontent.append(newsdate)
+
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+
+
 }
 
 
