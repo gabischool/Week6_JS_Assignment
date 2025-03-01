@@ -124,32 +124,81 @@ export const newsData = {
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
-  // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
 
+    // 1. Clear previous content
+      newsContainer.innerHTML = '';
+    
+      // 2. Create container elements
+      const contentContainer = document.createElement("div");
+      contentContainer.className = "featured-article";
+    
+      // 3. Create article element
+      const newsArticle = document.createElement("article");
+      newsArticle.className = "news-card featured";
+
+      // 4. Create and setup image
+      const newsImage = document.createElement("img");
+      newsImage.className = "news-image";
+      newsImage.src = articles[0].image;
+      newsImage.alt = articles[0].title;
   
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
-}
+    
+      // 5. Create content container
+    const newsContentContainer = document.createElement("div");
+    newsContentContainer.className = "news-content";
+    
+      // 6. Create featured label
+      const featuredLabel = document.createElement("span");
+      featuredLabel.className = "featured-label"
+    featuredLabel.textContent = "Featured Story";
+    
+      // 7. Create title
+      const newsTitle = document.createElement("h2");
+      newsTitle.className = "news-title"
+      newsTitle.textContent = articles[0].title;
+    
+      // 8. Create date
+      const newsDate = document.createElement("div");
+      newsDate.className = "news-date"
+      newsDate.textContent = articles[0].date;
+    
+      // 9. Create excerpt
+      const newsExcerpt = document.createElement("p");
+      newsExcerpt.className = "news-excerpt"
+      newsExcerpt.textContent = articles[0].excerpt;
+    
+      // 10. Create tag
+      const tag = document.createElement("span");
+      tag.className = "tag"
+      tag.textContent = articles[0].tag;
+    
+      // 11. Assemble the elements
+      newsArticle.append(newsImage);
+      newsArticle.append(newsContentContainer);
+      contentContainer.append(newsArticle);
+      
+      newsContentContainer.append(featuredLabel);
+      newsContentContainer.append(newsTitle);
+      newsContentContainer.append(newsDate);
+
+      newsDate.append(newsExcerpt);
+      newsDate.append(tag);
+    
+      newsContainer.append(contentContainer);
+
+
+
+
+      newsContainer.insertBefore(contentContainer, newsContainer.firstChild);
+    
+  
+    const footer = document.createElement("footer");
+    footer.className = "footer";
+    footer.textContent = "© 2025 Gabi News. All rights reserved.";
+    newsContainer.append(footer);
+  }
+  
+  
 
 
 // DO NOT CHANGE THIS
@@ -158,3 +207,4 @@ document.addEventListener('DOMContentLoaded', () => {
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
 });
+
