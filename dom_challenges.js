@@ -117,34 +117,68 @@ export const newsData = {
     }
   ]
 };
-
+console.log("test")
 export function displayArticles(category) {
+  console.log("test2")
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
+  const featuredartical =articles[0]
+  console.log("featured",featuredartical)
   
   // 1. Clear previous content
-  
+  newsContainer.innerHTML = '';
   // 2. Create container elements
-  
+  const ArticleContianer = document.createElement("div");
+  ArticleContianer.className = "featured-article";
   // 3. Create article element
-  
+const articleElement =document.createElement("article")
+// articleElement.className = "featured"
+articleElement.className = "news-card featured "
   // 4. Create and setup image
+   const articleImg = document.createElement("img");
+   articleImg.className = "news-image";
+   articleImg.src = featuredartical.image;
+   articleImg.alt = featuredartical.title;
   
   // 5. Create content container
-  
+  const contianerchil = document.createElement("div");
+  contianerchil.className ="news-content";
   // 6. Create featured label
-  
+  const featuredSpan = document.createElement("span");
+  featuredSpan.textContent = featuredartical.tag;
+  featuredSpan.className = "featured-label";
   // 7. Create title
-  
+  const titleElement = document.createElement("h2");
+  titleElement.textContent = featuredartical.title;
+  titleElement.className = "news-title";
   // 8. Create date
-  
+  const articleDate = document.createElement("div");
+  articleDate.textContent = featuredartical.date;
+  articleDate.className = "news-date"
   // 9. Create excerpt
-  
+  const articleExcerpt = document.createElement("p");
+  articleExcerpt.textContent = featuredartical.excerpt;
+  articleExcerpt.className = "news-excerpt";
   // 10. Create tag
-  
+  const articleTag = document.createElement("span");
+  articleTag.className = "tag";
   // 11. Assemble the elements
+  ArticleContianer.append(articleElement);
+  ArticleContianer.append(articleImg);
+  ArticleContianer.append(contianerchil);
+  contianerchil.append(featuredSpan);
+  contianerchil.append(titleElement);
+  contianerchil.append(articleDate); 
+  contianerchil.append(articleExcerpt);
+  contianerchil.append(articleTag);
+  newsContainer.append(ArticleContianer);
 
-  
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+
+  newsContainer.insertBefore(ArticleContianer, newsContainer.firstChild);
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultCategory = 'Latest News';  // Define the default category
+  displayArticles(defaultCategory);  // Display articles for the default category
+  document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
+});
+console.log(displayArticles("Web Development"))
