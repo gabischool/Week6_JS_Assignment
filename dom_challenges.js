@@ -123,7 +123,7 @@ export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   const featuredartical =articles[0]
-  console.log("featured",featuredartical)
+  // console.log("featured",featuredartical)
   
   // 1. Clear previous content
   newsContainer.innerHTML = '';
@@ -164,8 +164,8 @@ articleElement.className = "news-card featured "
   articleTag.className = "tag";
   // 11. Assemble the elements
   ArticleContianer.append(articleElement);
-  ArticleContianer.append(articleImg);
-  ArticleContianer.append(contianerchil);
+  articleElement.append(articleImg);
+  articleElement.append(contianerchil);
   contianerchil.append(featuredSpan);
   contianerchil.append(titleElement);
   contianerchil.append(articleDate); 
