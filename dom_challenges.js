@@ -126,29 +126,48 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
+  newsContainer.innerHTML='';
   // 2. Create container elements
-  
+  const containerelement=document.createElement("div")
+  containerelement.className= "featured-article"
   // 3. Create article element
-  
+  const articleElement= document.createElement("article")
+  articleElement.className="news-card featured"
   // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
+  const Articleimage=document.createElement("img")
+  Articleimage.src=articles[0].image
+  Articleimage.alt=articles[0].name
+  Articleimage.className="news-image"
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  // 5. Create content container
+  const articlecontent= document.createElement("div")
+  articlecontent.className="news-content"
+  // 6. Create featured label
+  const articlefeatured=document.createElement("span")
+  articlefeatured.ClassName= "featured-label"
+  // 7. Create title
+  const articletitle=document.createElement("h2")
+  articletitle.ClassName= "news-title"
+  articletitle.textcontent=articles[0].title
+  // 8. Create date
+  const articledate=document.createElement("div")
+  articledate.ClassName="news-date"
+  articledate.textcontent=articles[0].date
+
+  // 9. Create excerpt
+  const articleexcerpt=document.createElement("p")
+  articleexcerpt.classList.Name="news-excerpt"
+  articleexcerpt.textcontext=articles[0].excerpt
+
+  // 10. Create tag
+  const articletag=document.createElement("span")
+  articletag.classList.Name="tag"
+  // 11. Assemble the elements
+  containerelement.append(articleElement)
+  articleElement.append(Articleimage)
+  articlecontent.append(articlefeatured,articletitle,articledate,articleexcerpt,articletag)
+
+  newsContainer.insertBefore(containerelement,newsContainer.firstChild);
 }
 
 
