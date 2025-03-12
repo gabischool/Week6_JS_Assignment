@@ -126,27 +126,58 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+  newsContainer.innerHTML = '';
   
   // 2. Create container elements
-  
+  const featuredArticle = document.createElement(`div`)
+  featuredArticle.classList.add(`featured-article`)
   // 3. Create article element
-  
+  const articleElement = document.createElement('article');
+        articleElement.classList.add('news-article');
   // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
+  const imageElement = document.createElement('img');
+        imageElement.src = articles[0].image;
+        imageElement.alt = articles[0].title;
+        imageElement.classList.add('news-image');
 
+  // 5. Create content container
+  const contentContainer = document.createElement('div');
+        contentContainer.classList.add('news-content');
+
+  // 6. Create featured label
+  const featuredLabel = document.createElement('span');
+        featuredLabel.classList.add('featured-label');
+        featuredLabel.textContent = 'Featured';
+  // 7. Create title
+  const titleElement = document.createElement('h2');
+        titleElement.classList.add('news-title');
+        titleElement.textContent = articles[0].title;
+  // 8. Create date
+  const dateElement = document.createElement('p');
+        dateElement.classList.add('news-date');
+        dateElement.textContent = articles[0].date;
+
+  // 9. Create excerpt
+  const excerptElement = document.createElement('p');
+        excerptElement.classList.add('news-excerpt');
+        excerptElement.textContent = articles[0].excerpt;
+  // 10. Create tag
+  const tagElement = document.createElement('span');
+        tagElement.classList.add('news-tag');
+        tagElement.textContent = articles[0].tag;
+
+  // 11. Assemble the elements
+  contentContainer.appendChild(featuredLabel);
+  contentContainer.appendChild(titleElement);
+  contentContainer.appendChild(dateElement);
+  contentContainer.appendChild(excerptElement);
+  contentContainer.appendChild(tagElement);
+
+  articleElement.appendChild(imageElement);
+  articleElement.appendChild(contentContainer);
+
+  
+  newsContainer.appendChild(articleElement);
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
@@ -158,3 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
 });
+
+ //stretch
+ let footer = document.createElement("footer");
+
+
+footer.innerHTML = "<p> copyright reserved; 2025 GABI NEWS</p>";
+
+
+footer.style.backgroundColor = "#333";
+footer.style.color = "white";
+footer.style.textAlign = "center";
+footer.style.padding = "10px";
+footer.style.position = "fixed";
+footer.style.bottom = "0";
+footer.style.width = "100%";
+
+
+document.body.appendChild(footer);
