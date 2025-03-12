@@ -12,7 +12,7 @@ You are managing a database for a **movie rental platform** called **Movie Mania
 
 */
 
-const movies = [
+const moviesList = [
     { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
     { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
     { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
@@ -45,10 +45,13 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
+    
+  const MovieTitlesAndRatings = 
+  moviesList.map(movie =>`${movie.title} - Rating : ${movie.rating}/10`);
+  console.log(MovieTitlesAndRatings)
   
   /*
-  Task 2: Find Highly Rated Movies 🌟 (`.filter`)
+  ask 2: Find Highly Rated Movies 🌟 (`.filter`)
   
   Your customers have requested a list of **highly rated movies** 
   (movies with a rating of 8.0 or higher).
@@ -68,4 +71,14 @@ const movies = [
   // ✍️ Solve it here ✍️
 
 
- 
+  const movies = [
+    { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
+    { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
+    { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
+    { title: "Avatar", genre: "Sci-Fi", rating: 7.8, rented: false },
+    { title: "Titanic", genre: "Drama", rating: 7.9, rented: true }
+  ];
+  
+  const highlyRatedMovies = movies.filter(movie => movie.rating >= 8.0);
+  
+  console.log(highlyRatedMovies);
