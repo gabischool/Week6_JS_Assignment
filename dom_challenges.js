@@ -151,3 +151,57 @@ function displayArticles(category) {
 
 // Show initial articles
 displayArticles('Latest News');
+
+function displayArticles(category) {
+  const newsContainer = document.querySelector('#news-container');
+  const articles = newsData[category];
+
+  // Clear previous content
+  newsContainer.innerHTML = '';
+
+  if (!articles || articles.length === 0) {
+    newsContainer.textContent = "No articles available.";
+    return;
+  }
+
+  // Create featured article
+  const featured = document.createElement('div');
+  featured.classList.add('featured-article');
+
+  // Fill in featured article data
+  const firstArticle = articles[0];
+  featured.innerHTML = `
+    <img src="${firstArticle.image}" alt="${firstArticle.title}" />
+    <h2>${firstArticle.title}</h2>
+    <p>${firstArticle.summary}</p>
+    <small>${firstArticle.date}</small>
+  `;
+
+  // Add featured article to container
+  newsContainer.appendChild(featured);
+
+  // Create grid for remaining articles
+  const newsGrid = document.createElement('div');
+  newsGrid.classList.add('news-grid');
+
+  // Create remaining article cards
+  articles.slice(1).forEach(article => {
+    const card = document.createElement('div');
+    card.classList.add('news-card');
+
+    card.innerHTML = `
+      <img src="${article.image}" alt="${article.title}" />
+      <h3>${article.title}</h3>
+      <p>${article.summary}</p>
+      <small>${article.date}</small>
+    `;
+
+    newsGrid.appendChild(card);
+  });
+
+  // Add grid to container
+  newsContainer.appendChild(newsGrid);
+}
+
+// Show initial articles
+displayArticles('Latest News');
