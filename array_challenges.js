@@ -45,6 +45,20 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+  // Answer 1
+    const movieTitlesAndRatings = movies.map(movie => `${movie.title} - Rating: ${movie.rating}/10`);
+[
+  { title: "Fast & Furious 10", rating: 7.5 },
+  { title: "The Notebook", rating: 8.0 },
+  { title: "Spider-Man: No Way Home", rating: 8.7 },
+  { title: "Superbad", rating: 7.0 },
+  { title: "The Dark Knight", rating: 9.0 },
+  { title: "The Intern", rating: 7.4 }
+];
+
+
+  console.log(movieTitlesAndRatings);
   
   
   /*
@@ -67,5 +81,16 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
+const highlyRatedMovies = movies.filter(movie => movie.rating >= 8.0); 
+ [
+  { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
+  { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
+  { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
+  { title: "Superbad", genre: "Comedy", rating: 7.0, rented: false },
+  { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
+  { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
+];
+
+console.log(highlyRatedMovies);
 
  

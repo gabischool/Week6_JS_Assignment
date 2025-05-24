@@ -1,5 +1,6 @@
 
 // News articles data organized by category
+console.log("Hello World");
 export const newsData = {
   'Latest News': [
     {
@@ -126,26 +127,71 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+  newsContainer.innerHTML = '';  
+
+  // Remove all existing articles
+
   
   // 2. Create container elements
+const featuredArticle = document.createElement('div');
+featuredArticle.classList.add('featured-article');
+
+const item = articles[0];
   
   // 3. Create article element
+const articleElement = document.createElement('article');
+articleElement.classList.add('news-article');
+
   
   // 4. Create and setup image
+const imageElement = document.createElement('img');
+imageElement.src = item.image;
+imageElement.alt = item.title;
+imageElement.classList.add('news-image');
   
   // 5. Create content container
+  const contentContainer = document.createElement('div');
+contentContainer.classList.add('news-content');
+  
   
   // 6. Create featured label
+  const featuredLabel = document.createElement('span');
+featuredLabel.classList.add('featured-label');
+featuredLabel.textContent = 'Featured';
   
   // 7. Create title
-  
+  const titleElement = document.createElement('h2');
+titleElement.classList.add('article-title');
+titleElement.textContent = item.title;
   // 8. Create date
+const dateElement = document.createElement('p');
+dateElement.classList.add('article-date');
+dateElement.textContent = item.date;
   
   // 9. Create excerpt
+const excerptElement = document.createElement('p');
+excerptElement.classList.add('article-excerpt');
+excerptElement.textContent = item.excerpt;
   
   // 10. Create tag
+  const tagElement = document.createElement('span');
+tagElement.classList.add('article-tag', 'tag');
+tagElement.textContent = item.tag;
+
   
   // 11. Assemble the elements
+contentContainer.appendChild(featuredLabel);
+contentContainer.appendChild(titleElement);
+contentContainer.appendChild(dateElement);
+contentContainer.appendChild(excerptElement);
+contentContainer.appendChild(tagElement);
+
+
+articleElement.appendChild(imageElement);
+articleElement.appendChild(contentContainer);
+
+ featuredArticle.appendChild(articleElement);
+ 
 
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
