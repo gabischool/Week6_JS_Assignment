@@ -127,6 +127,7 @@ export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
 
+  // Hadii lagu dhufto meel aan jirin function-ka shaqada wuu ka baxayaa oo masii wadayo
   if (!articles) return;
   
   // 1. Clear previous content
