@@ -57,7 +57,7 @@ Below is a preview of how your DOM challenge should look after completion:
 - Save your progress regularly:
 
   ```bash
-  git add .
+  git add . 
   git commit -m "Completed Week 6 assignment tasks"
   git push -u origin <your-branch-name>
   ```

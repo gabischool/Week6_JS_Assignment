@@ -121,35 +121,93 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
+const newsGrid = document.querySelector(".news-grid");
+
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
+
+  // Hadii lagu dhufto meel aan jirin function-ka shaqada wuu ka baxayaa oo masii wadayo
+  if (!articles) return;
   
   // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
+  newsContainer.innerHTML = "";
+  newsGrid.innerHTML = "";
 
-  
+  // 2. Create container elements
+  const featuredArticle = document.createElement("div");
+  featuredArticle.className = "featured-article";
+
+  // 3. Create article element
+  const newsCardArticle = document.createElement("article");
+  newsCardArticle.className = "news-card featured";
+
+  // 4. Create and setup image
+  const newsImage = document.createElement("img");
+  newsImage.src = articles[0].image
+  newsImage.alt = articles[0].title;
+  newsImage.className = "news-image";
+
+  // 5. Create content container
+  const newsContent = document.createElement("div");
+  newsContent.className = "news-content";
+
+  // 6. Create featured label
+  const featuredLabel = document.createElement("span");
+  featuredLabel.className = "featured-label";
+  featuredLabel.textContent = "Featured Story";
+
+  // 7. Create title
+  const newsTitle = document.createElement("h2");
+  newsTitle.textContent = articles[0].title;
+
+  // 8. Create date
+  const newsDate = document.createElement("div");
+  newsDate.textContent = articles[0].date;
+
+  // 9. Create excerpt
+  const newsExcerpt = document.createElement("p");
+  newsExcerpt.textContent = articles[0].excerpt;
+
+  // 10. Create tag
+  const newsTag = document.createElement("span");
+  newsTag.textContent = articles[0].tag;
+
+  // 11. Assemble the elements
+  featuredArticle.append(newsCardArticle);
+
+  newsCardArticle.append(newsImage);
+  newsCardArticle.append(newsContent);
+
+  newsContent.append(featuredLabel);
+  newsContent.append(newsTitle);
+  newsContent.append(newsDate);
+  newsContent.append(newsExcerpt);
+  newsContent.append(newsTag);
+
+  newsContainer.append(featuredArticle);
+
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  return newsContainer;
 }
+
+// Creating footer
+
+const footer = document.createElement("footer");
+const Pfooter = document.createElement("p");
+Pfooter.className = "pfooter";
+Pfooter.textContent = "All copyright is reserved by Khalid Abdisalam Hassan @2023";
+
+// append paragraph to footer
+footer.append(Pfooter);
+
+// Append footer to the body
+document.body.append(footer);
+
+// Style the footer
+footer.style.textAlign = "center";
+footer.style.backgroundColor = "aqua";
+footer.style.padding = "5px 0";
 
 
 // DO NOT CHANGE THIS
