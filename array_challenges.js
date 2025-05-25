@@ -11,7 +11,6 @@ You are managing a database for a **movie rental platform** called **Movie Mania
 - `rented` (boolean): Whether the movie has been rented.
 
 */
-
 const movies = [
     { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
     { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
@@ -20,7 +19,7 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
   ];
-  
+
   /*
   
   Task 1: Movie Titles and Ratings 🎥 (`.map`)
@@ -45,6 +44,18 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+ 
+const movieCompine = movies.map(movie => {
+  return movie.title + " " + "Rating" + movie.rating + ","
+}
+
+)
+  console.log(movieCompine);
+  
+  
+ 
+  
+  
   
   
   /*
@@ -64,8 +75,17 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true }
   ]
   */
+
   
   // ✍️ Solve it here ✍️
 
+const MoviesRating = movies.filter((item) =>{
+  if (item.rating >= 8.0){
+    return item
+  }
+}
+
+)
+console.log(MoviesRating);
 
  

@@ -192,3 +192,14 @@
     margin-top: 1rem;
     font-weight: 500;
   }
+ footer small{
+  text-align: center;
+ }
+ .header,small {
+  text-align: center;
+  padding: 0 50px;
+  font-style: italic;
+  font-size: large;
+
+ 
+ }

@@ -124,31 +124,65 @@ export const newsData = {
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
+ const article = articles[0];
   // 1. Clear previous content
-  
+  newsContainer.innerHTML = " ";
+ 
   // 2. Create container elements
-  
+  const newMainData = document.createElement("div");
+  newMainData.className = "featured-article";
   // 3. Create article element
-  
+  const articleElement = document.createElement("div");
+  articleElement.className = "news-card featured";
   // 4. Create and setup image
-  
+  const newImage = document.createElement("img");
+  newImage.src = article.image;
+  newImage.alt = "";
+    newImage.className = "news-image";
+
+
   // 5. Create content container
-  
+  const newsContentDiv = document.createElement("div");
+  newsContentDiv.className = "news-content";
   // 6. Create featured label
-  
+  const label = document.createElement("span");
+  label.textContent = "featured-story";
+  label.className = "featured-label";
+
   // 7. Create title
-  
+  const titleNew = document.createElement("h2");
+  titleNew.className = "news-title";
+  label.textContent = article.title;
   // 8. Create date
-  
+  const dateTime = document.createElement("div");
+  dateTime.className = "news-date";
+  dateTime.textContent = article.date;
+
   // 9. Create excerpt
-  
+  const excerptNews = document.createElement("p");
+  excerptNews.className = "news-excerpt";
+  excerptNews.textContent = article.excerpt
   // 10. Create tag
-  
+  const tagName = document.createElement("span");
+  tagName.className = "tag";
+  tagName.textContent = article.tag;
   // 11. Assemble the elements
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+
+ newsContentDiv.appendChild(label);
+  newsContentDiv.appendChild(titleNew);
+  newsContentDiv.appendChild(dateTime);
+  newsContentDiv.appendChild(excerptNews);
+  newsContentDiv.appendChild(tagName);
+
+  articleElement.appendChild(newImage);
+  articleElement.appendChild(newsContentDiv);
+  newMainData.appendChild(articleElement);
+  newsContainer.appendChild(newMainData);
+
+  return newMainData;
+
+  //newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
 
 
