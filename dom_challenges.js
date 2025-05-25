@@ -121,33 +121,62 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
-export function displayArticles(category) {
+  // 1. Clear previous content
+function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
-  // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
 
-  
+  // 2. Create container elements
+  articles.forEach((article, index) => {
+    const featuredArticle = document.createElement('div');
+    featuredArticle.classList.add('featured-article');
+    const articleCard = document.createElement('article');
+    articleCard.classList.add('news-card', 'featured');
+  // 3. Create article element
+ const article = document.createElement('article');
+  article.classList.add('news-card', 'featured');
+  // 4. Create and setup image
+ const img = document.createElement('img');
+    img.classList.add('news-image');
+    img.src = article.image;
+    img.alt = article.title;
+  // 5. Create content container
+ const content = document.createElement('div');
+    content.classList.add('news-content');
+
+  // 6. Create featured label
+const label = document.createElement('span');
+    label.classList.add('featured-label');
+    label.textContent = 'Featured Story';
+
+  // 7. Create title
+const title = document.createElement('h2');
+    title.classList.add('news-title');
+    title.textContent = article.title;
+
+  // 8. Create date
+const date = document.createElement('div');
+    date.classList.add('news-date');
+    date.textContent = article.date;
+
+  // 9. Create excerpt
+const excerpt = document.createElement('p');
+    excerpt.classList.add('news-excerpt');
+    excerpt.textContent = article.excerpt;
+
+  // 10. Create tag
+const tag = document.createElement('span');
+    tag.classList.add('tag');
+    tag.textContent = article.tag;
+
+  // 11. Assemble the elements
+content.appendChild(label);  
+content.appendChild(title);
+    content.appendChild(date);
+    content.appendChild(excerpt);
+    content.appendChild(tag);
+
+
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
 
@@ -158,3 +187,18 @@ document.addEventListener('DOMContentLoaded', () => {
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
 });
+
+
+
+//<div class="featured-article">
+    //<article class="news-card featured">
+      //<img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
+      //<div class="news-content">
+       // <span class="featured-label">Featured Story</span>
+        //<h2 class="news-title">GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model</h2>
+        //<div class="news-date">March 14, 2024</div>
+        //<p class="news-excerpt">OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains.</p>
+        //<span class="tag">Artificial Intelligence</span>
+      //</div>
+    //</article>
+  //</div>
