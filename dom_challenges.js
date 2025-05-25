@@ -120,7 +120,7 @@ export const newsData = {
 
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
-
+ 
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
@@ -196,6 +196,9 @@ export function displayArticles(category) {
   newsContainer.appendChild(featuredArticle);
 
 
+  
+
+
 
 
 
@@ -204,10 +207,24 @@ export function displayArticles(category) {
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
 
+function createfooter(){
+  const footer = document.createElement('footer');
+  footer.classList.add('down-footer');
+
+  const footertext = document.createElement('p');
+  footertext.textContent = "© 2025 Bozka";
+
+  footer.append(footertext);
+  document.body.append(footer);
+}
+
 
 // DO NOT CHANGE THIS
 document.addEventListener('DOMContentLoaded', () => {
   const defaultCategory = 'Latest News';  // Define the default category
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
+
+
+  createfooter();
 });
