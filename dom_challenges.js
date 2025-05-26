@@ -121,9 +121,129 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
+/*
+
+<div class="featured-article">
+    <article class="news-card featured">
+      <img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
+      <div class="news-content">
+        <span class="featured-label">Featured Story</span>
+        <h2 class="news-title">GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model</h2>
+        <div class="news-date">March 14, 2024</div>
+        <p class="news-excerpt">OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains.</p>
+        <span class="tag">Artificial Intelligence</span>
+      </div>
+    </article>
+  </div>
+
+  */
+
+  //  const newsgrid = document.querySelector(".news-grid")
+  //  const newscard = document.querySelector(".news-card")
+
+
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
+
+  newsContainer.innerHTML = "";
+
+  const featuredArticle = document.createElement("div")
+
+  featuredArticle.className = "featured-article"
+
+  const articless = document.createElement("article")
+  articless.className = "news-card featured"
+
+  const newsimg = document.createElement("img")
+   newsimg.className = "news-image"
+   newsimg.src = articles[0].image        
+   newsimg.alt = articles[0].tag
+
+
+   const divcontent = document.createElement("div")
+   divcontent.className = "news-content" 
+
+   const spanl = document.createElement("span")
+   spanl.className = "featured-label"
+   spanl.textContent = "Featured Story"
+
+
+
+   const titlemain = document.createElement("h2")
+   titlemain.className = "news-title"
+   titlemain.textContent = articles[0].title
+
+
+   const anotherdiv = document.createElement("div")
+   anotherdiv.className = "news-date"
+   anotherdiv.textContent = articles[0].date
+
+
+   const ptag = document.createElement("p")
+   ptag.className = "news-excerpt"
+   ptag.textContent = articles[0].excerpt
+
+   const lastspan = document.createElement("span")
+   lastspan.className = "tag"
+   lastspan.textContent = articles[0].tag
+
+   featuredArticle.append(articless)
+   articless.append(newsimg)
+   articless.append(divcontent)
+
+   divcontent.append(spanl)
+   divcontent.append(titlemain)
+   divcontent.append(anotherdiv)
+   divcontent.append(ptag)
+   divcontent.append(lastspan)
+
+    newsContainer.append(featuredArticle)
+
+      return newsContainer;
+
+
+
+
+
+
+
+
+
+    // featuredArticle.append(articless)
+    // articless.append(newsimg)
+    // articless.append(divcontent)
+    // //featuredArticle.append(newsimg)
+    // featuredArticle.append(divcontent)
+
+    //  divcontent.append(spanl)
+    //  divcontent.append( titlemain)
+    //   divcontent.append(anotherdiv)
+    //   // divcontent.append(ptag)
+    //   // divcontent.append(lastspan)
+
+
+
+    //  anotherdiv.append(ptag)
+    //  anotherdiv.append(lastspan)
+
+    //   newsContainer.append(featuredArticle)
+
+    //    return newsContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   // 1. Clear previous content
   
