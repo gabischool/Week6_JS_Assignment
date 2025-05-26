@@ -12,14 +12,14 @@ You are managing a database for a **movie rental platform** called **Movie Mania
 
 */
 
-const movies = [
-    { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
-    { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
-    { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
-    { title: "Superbad", genre: "Comedy", rating: 7.0, rented: false },
-    { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
-    { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
-  ];
+// const movies = [
+//     { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
+//     { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
+//     { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
+//     { title: "Superbad", genre: "Comedy", rating: 7.0, rented: false },
+//     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
+//     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
+//   ];
   
   /*
   
@@ -45,8 +45,26 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+
+  const movies = [
+    { title: "Fast & Furious 10", genre: "Action", rating: 7.5, rented: true },
+    { title: "The Notebook", genre: "Drama", rating: 8.0, rented: false },
+    { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
+    { title: "Superbad", genre: "Comedy", rating: 7.0, rented: false },
+    { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
+    { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
+  ];
+
+  const movie = movies.map((item) => {
+    return (`${item.title} - rating: ${item.rating}/10`)
+  })   
   
   
+  console.log(movie)
+
+
+
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
@@ -67,5 +85,11 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
+  const movefilt = movies.filter((item) => {
+    return item.rating  >= 8.0
+  })
 
+console.log(movefilt)
+
+         
  
