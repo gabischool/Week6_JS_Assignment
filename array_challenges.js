@@ -45,6 +45,9 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+const movieTitlesAndRatings = movies.map(movie => `${movie.title} - Rating: ${movie.rating}/10`);
+console.log(movieTitlesAndRatings);
   
   
   /*
@@ -66,6 +69,8 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+const highlyRatedMovies = movies.filter(movie => movie.rating >= 8.0);
+console.log(highlyRatedMovies);
 
 
  
