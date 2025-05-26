@@ -126,28 +126,72 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
+    newsContainer.innerHTML = ''; // Clear previous articles
+ 
+
   // 2. Create container elements
+  const featuredArticle = document.createElement('div');
+  featuredArticle.classList.add('news-grid');
   
   // 3. Create article element
+  const articleElement = document.createElement('article');
+  articleElement.classList.add('news-card');
   
   // 4. Create and setup image
+  const image = document.createElement('img');
+  image.src = articles[0].image;
+  image.alt = articles[0].title;
+  image.classList.add('news-image');
   
   // 5. Create content container
+  const contentContainer = document.createElement('div');
+  contentContainer.classList.add('news-content');
   
   // 6. Create featured label
+  const featuredLabel = document.createElement('span');
+  featuredLabel.classList.add('featured-label');
   
   // 7. Create title
+  const title = document.createElement('h2');
+  title.classList.add('news-title');
   
   // 8. Create date
+  const date = document.createElement('p');
+  date.classList.add('news-date');
   
   // 9. Create excerpt
+  const excerpt = document.createElement('p');
+  excerpt.classList.add('news-excerpt');
   
   // 10. Create tag
+  const tag = document.createElement('span');
+  tag.classList.add('tag');
   
   // 11. Assemble the elements
-
+  featuredLabel.textContent = 'Featured Article';
+  title.textContent = articles[0].title;
+  date.textContent = articles[0].date;
+  excerpt.textContent = articles[0].excerpt;
+  tag.textContent = articles[0].tag;
   
+ 
+  contentContainer.appendChild(featuredLabel);
+  contentContainer.appendChild(title);
+  contentContainer.appendChild(date);
+  contentContainer.appendChild(excerpt);
+  contentContainer.appendChild(tag);
+
+  articleElement.appendChild(image);
+  
+  
+  featuredArticle.appendChild(articleElement)
+  featuredArticle.appendChild(contentContainer);
+  
+
+
+    
+
+
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
 
