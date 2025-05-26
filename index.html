@@ -1,66 +1,68 @@
 <!-- DO NOT CHANGE THE HTML -->
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabi News - Latest Technology Updates</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <header class="header">
-        <div class="header-content">
-          <div class="header-top">
-            <div class="header-top-content">
-              <div class="header-left">
-                <img src="https://plus.gabischool.com/assets/uploads/gabinews.png" alt="Gabi News Logo" class="logo">
-                <div class="header-text">
-                  <p>Your Source for the Latest Technology Updates</p>
-                </div>
-              </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabi News - Latest Technology Updates</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-top">
+        <div class="header-top-content">
+          <div class="header-left">
+            <img src="https://plus.gabischool.com/assets/uploads/gabinews.png" alt="Gabi News Logo" class="logo">
+            <div class="header-text">
+              <p>Your Source for the Latest Technology Updates</p>
             </div>
           </div>
-          <nav class="main-nav">
-            <div class="nav-links">
-              <a href="#" data-category="Latest News" class="active">Latest News</a>
-              <a href="#" data-category="Technology">Technology</a>
-              <a href="#" data-category="AI & ML">AI & ML</a>
-              <a href="#" data-category="Web Development">Web Development</a>
-              <a href="#" data-category="Cyber Security">Cyber Security</a>
-            </div>
-          </nav>
         </div>
-      </header>
-   
-      
-      <!-- News Container -->
-      <div id="news-container" class="news-container">        
-        <!-- Featured Article -->
+      </div>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="#" data-category="Latest News" class="active">Latest News</a>
+          <a href="#" data-category="Technology">Technology</a>
+          <a href="#" data-category="AI & ML">AI & ML</a>
+          <a href="#" data-category="Web Development">Web Development</a>
+          <a href="#" data-category="Cyber Security">Cyber Security</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-        <div class="news-grid"></div>
-        <script type="module">
-          import { newsData, displayArticles } from './dom_challenges.js';
-          
-          const newsGrid = document.querySelector('.news-grid');
 
-          // Update grid when category changes
-          document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-              const category = link.dataset.category;
-              
-              // Update active state
-              document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-              link.classList.add('active');
-              
-              // Update featured article and grid
-              displayArticles(category);
-              
-              // Update grid
-              const articles = newsData[category].slice(1);
-              
-              newsGrid.innerHTML = '';
-              articles.forEach(article => {
-                newsGrid.innerHTML += `
+  <!-- News Container -->
+  <div id="news-container" class="news-container">
+    <!-- Featured Article -->
+
+    <div class="news-grid"></div>
+    <script type="module">
+      import { newsData, displayArticles } from './dom_challenges.js';
+
+      const newsGrid = document.querySelector('.news-grid');
+
+      // Update grid when category changes
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          const category = link.dataset.category;
+
+          // Update active state
+          document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          // Update featured article and grid
+          displayArticles(category);
+
+          // Update grid
+          const articles = newsData[category].slice(1);
+
+          newsGrid.innerHTML = '';
+          articles.forEach(article => {
+            newsGrid.innerHTML += `
                   <article class="news-card">
                     <img class="news-image" src="${article.image}" alt="${article.title}">
                     <div class="news-content">
@@ -71,33 +73,38 @@
                     </div>
                   </article>
                 `;
-              });
-            });
           });
-        </script>
+        });
+      });
+    </script>
+  </div>
+
+  <!-- Initial Articles -->
+  <div class="news-grid">
+    <article class="news-card">
+      <img class="news-image" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2"
+        alt="SpaceX Successfully Launches New Satellite Constellation">
+      <div class="news-content">
+        <h2 class="news-title">SpaceX Successfully Launches New Satellite Constellation</h2>
+        <div class="news-date">March 13, 2024</div>
+        <p class="news-excerpt">Starship completes its most ambitious mission yet, deploying 50 satellites in a single
+          launch and advancing global internet coverage goals.</p>
+        <span class="tag">Space Tech</span>
       </div>
-      
-      <!-- Initial Articles -->
-      <div class="news-grid">
-        <article class="news-card">
-          <img class="news-image" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2" alt="SpaceX Successfully Launches New Satellite Constellation">
-          <div class="news-content">
-            <h2 class="news-title">SpaceX Successfully Launches New Satellite Constellation</h2>
-            <div class="news-date">March 13, 2024</div>
-            <p class="news-excerpt">Starship completes its most ambitious mission yet, deploying 50 satellites in a single launch and advancing global internet coverage goals.</p>
-            <span class="tag">Space Tech</span>
-          </div>
-        </article>
-        
-        <article class="news-card">
-          <img class="news-image" src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d" alt="Apple Unveils Revolutionary Mixed Reality Device">
-          <div class="news-content">
-            <h2 class="news-title">Apple Unveils Revolutionary Mixed Reality Device</h2>
-            <div class="news-date">March 12, 2024</div>
-            <p class="news-excerpt">The tech giant's latest hardware release promises to transform how we interact with digital content through advanced spatial computing.</p>
-            <span class="tag">Hardware</span>
-          </div>
-        </article>
+    </article>
+
+    <article class="news-card">
+      <img class="news-image" src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d"
+        alt="Apple Unveils Revolutionary Mixed Reality Device">
+      <div class="news-content">
+        <h2 class="news-title">Apple Unveils Revolutionary Mixed Reality Device</h2>
+        <div class="news-date">March 12, 2024</div>
+        <p class="news-excerpt">The tech giant's latest hardware release promises to transform how we interact with
+          digital content through advanced spatial computing.</p>
+        <span class="tag">Hardware</span>
       </div>
-  </body>
+    </article>
+  </div>
+</body>
+
 </html>
