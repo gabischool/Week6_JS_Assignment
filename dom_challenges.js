@@ -1,5 +1,5 @@
 
-// News articles data organized by category
+// News articles data organized by c
 export const newsData = {
   'Latest News': [
     {
@@ -124,34 +124,110 @@ export const newsData = {
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
+
   // 1. Clear previous content
-  
-  // 2. Create container elements
-  
+  newsContainer.innerHTML = '';
+
+  // 2. Create featured article container
+  const featuredContainer = document.createElement('div')
+  featuredContainer.classList.add('featured-article')
+
   // 3. Create article element
-  
+  const featuredArticle = document.createElement('article')
+  featuredArticle.classList.add('news-card', 'featured')
+
   // 4. Create and setup image
-  
+  const img = document.createElement('img')
+  img.classList.add('news-image')
+  img.src = articles[0].image
+  img.alt = articles[0].title
+
   // 5. Create content container
-  
+  const content = document.createElement('div')
+  content.classList.add('news-content')
+
   // 6. Create featured label
-  
+  const label = document.createElement('span')
+  label.classList.add('featured-label')
+  label.textContent = 'Featured Story'
+
   // 7. Create title
-  
+  const title = document.createElement('h2')
+  title.classList.add('news-title');
+  title.textContent = articles[0].title
+
   // 8. Create date
-  
+  const date = document.createElement('div')
+  date.classList.add('news-date')
+  date.textContent = articles[0].date
+
   // 9. Create excerpt
-  
+  const excerpt = document.createElement('p')
+  excerpt.classList.add('news-excerpt')
+  excerpt.textContent = articles[0].excerpt
+
   // 10. Create tag
-  
+  const tag = document.createElement('span')
+  tag.classList.add('tag')
+  tag.textContent = articles[0].tag
+
   // 11. Assemble the elements
+  content.appendChild(label);
+  content.appendChild(title);
+  content.appendChild(date);
+  content.appendChild(excerpt);
+  content.appendChild(tag);
+  featuredArticle.appendChild(img);
+  featuredArticle.appendChild(content);
+  featuredContainer.appendChild(featuredArticle)
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  newsContainer.appendChild(featuredContainer)
+
+  // Create news grid for other articles
+  const newsGrid = document.createElement('div')
+  newsGrid.classList.add('news-grid');
+
+  // Skip the first (featured) article
+  articles.slice(1).forEach(article => {
+    const card = document.createElement('article')
+    card.classList.add('news-card')
+
+    const cardImg = document.createElement('img')
+    cardImg.classList.add('news-image')
+    cardImg.src = article.image;
+    cardImg.alt = article.title
+
+    const cardContent = document.createElement('div')
+    cardContent.classList.add('news-content')
+
+    const cardTitle = document.createElement('h2')
+    cardTitle.classList.add('news-title')
+    cardTitle.textContent = article.title
+
+    const cardDate = document.createElement('div')
+    cardDate.classList.add('news-date')
+    cardDate.textContent = article.date
+
+    const cardExcerpt = document.createElement('p')
+    cardExcerpt.classList.add('news-excerpt')
+    cardExcerpt.textContent = article.excerpt
+
+    const cardTag = document.createElement('span')
+    cardTag.classList.add('tag');
+    cardTag.textContent = article.tag
+
+    cardContent.appendChild(cardTitle)
+    cardContent.appendChild(cardDate)
+    cardContent.appendChild(cardExcerpt)
+    cardContent.appendChild(cardTag)
+    card.appendChild(cardImg)
+    card.appendChild(cardContent)
+
+    newsGrid.appendChild(card)
+  });
+
+  newsContainer.appendChild(newsGrid)
 }
-
-
 // DO NOT CHANGE THIS
 document.addEventListener('DOMContentLoaded', () => {
   const defaultCategory = 'Latest News';  // Define the default category
