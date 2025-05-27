@@ -7,7 +7,7 @@ You are managing a database for a **movie rental platform** called **Movie Mania
 
 - `title` (string): The title of the movie.
 - `genre` (string): The genre of the movie (e.g., "Action", "Comedy", "Drama").
-- `rating` (number): The average viewer rating (out of 10).
+- `rating` (number): The average viewer rating (out of 10)
 - `rented` (boolean): Whether the movie has been rented.
 
 */
@@ -45,7 +45,12 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
+  const movieTitlesAndRatings = movies.map(movie => {
+  return `${movie.title} - Rating: ${movie.rating}/10`;
+});
+
+console.log(movieTitlesAndRatings);
+
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
@@ -66,6 +71,6 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+const highlyRatedMovies = movies.filter(movie => movie.rating >= 8.0);
 
-
- 
+console.log(highlyRatedMovies)
