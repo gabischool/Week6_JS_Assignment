@@ -119,33 +119,76 @@ export const newsData = {
 };
 
 
+/* <div class="featured-article">
+    <article class="news-card featured">
+      <img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
+      <div class="news-content">
+        <span class="featured-label">Featured Story</span>
+        <h2 class="news-title">GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model</h2>
+        <div class="news-date">March 14, 2024</div>
+        <p class="news-excerpt">OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains.</p>
+        <span class="tag">Artificial Intelligence</span>
+      </div>
+    </article>
+  </div> */
+
+
+
+
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
+
+
 
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
   // 1. Clear previous content
-  
+  newsContainer.innerHTML = "";
   // 2. Create container elements
-  
+  const featuredArticle=document.createElement("div")
+  featuredArticle.className="featured-article"
   // 3. Create article element
-  
+  const newsDataArticle=document.createElement("article")
+  newsDataArticle.className="news-card featured"
   // 4. Create and setup image
-  
+  const newsDataImage=document.createElement("img")
+  newsDataImage.src=articles[0].image;
+  newsDataImage.className="news-image"
   // 5. Create content container
-  
+  const newsDatacontainerdiv=document.createElement("div")
+  newsDatacontainerdiv.className="news-content"
   // 6. Create featured label
-  
+    const newsdatalabel=document.createElement("span")
+    newsdatalabel.textContent = "Featured Story"
+    newsdatalabel.className="featured-label"
   // 7. Create title
-  
+  const newsdatatitle=document.createElement("h2")
+  newsdatatitle.textContent = articles[0].title;
+  newsdatatitle.className="news-title"
   // 8. Create date
-  
-  // 9. Create excerpt
-  
+  const newsdatadate=document.createElement("div")
+  newsdatadate.textContent=articles[0].date;
+  newsdatadate.className="news-date"
+  // 9. Create excerpt0
+  const newsdataexc=document.createElement("p")
+  newsdataexc.textContent=articles[0].excerpt;
+  newsdataexc.className="news-excerpt"
   // 10. Create tag
-  
+  const newsdatatag=document.createElement("span")
+  newsdatatag.textContent = articles[0].tag;
+  newsdatatag.className="tag"
   // 11. Assemble the elements
+  featuredArticle.append(newsDataArticle)
+  newsDataArticle.append(newsDataImage)
+  newsDataArticle.append(newsDatacontainerdiv)
+  newsDatacontainerdiv.append(newsdatalabel)
+  newsDatacontainerdiv.append(newsdatatitle)
+  newsDatacontainerdiv.append(newsdatadate)
+  newsDatacontainerdiv.append(newsdataexc)
+  newsDatacontainerdiv.append(newsdatatag)
+  newsContainer.append(featuredArticle)
+
 
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
