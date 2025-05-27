@@ -121,33 +121,143 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
-export function displayArticles(category) {
+ /*  <div class="featured-article">
+    <article class="news-card featured">
+      <img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
+      <div class="news-content">
+        <span class="featured-label">Featured Story</span>
+        <h2 class="news-title">GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model</h2>
+        <div class="news-date">March 14, 2024</div>
+        <p class="news-excerpt">OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains.</p>
+        <span class="tag">Artificial Intelligence</span>
+      </div>
+    </article>
+  </div> */
+
+/* export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
   
+
+
   // 1. Clear previous content
-  
+   const featuredArticle.innerHTML = "";
   // 2. Create container elements
-  
+   const FeaturedArticle  = document.createElement("div")
+ FeaturedArticle.className = "news-content"
+
   // 3. Create article element
-  
+  const Article = document.createElement("article")
+Article.className = "news-card featured"
   // 4. Create and setup image
-  
+  const image = document.createElement("img")
+  image.className = "news-image"
+  image.src = "FeaturedArticle.image";
+  image.alt = "FeaturedArticle.name";
   // 5. Create content container
-  
+  const mainDiv = document.createElement("div")
+ mainDiv.className = "news-content";
   // 6. Create featured label
-  
+  const abdi = document.createElement("span");
+abdi.className = "featured-label";
+
   // 7. Create title
-  
+  const xab = document.createElement("h2")
+  xab.className = "news-title"
+  xab.textContent = "GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model";
   // 8. Create date
-  
+  const  date = document.createElement("div")
+  date.className = "news-date"
+  date.textContent = "March 14, 2024"
   // 9. Create excerpt
-  
+  const xam = document.createElement("p")
+  xam.className = "news-excerpt"
+  xam.textContent = "OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains."
   // 10. Create tag
-  
+  const tag = document.createElement("span")
+  tag.className = "tag"
+  tag.textContent = "Artificial Intelligence"
   // 11. Assemble the elements
 
+}
+ */
+
+export function displayArticles(category) {
+  const newsContainer = document.querySelector('#news-container');
+  const articles = newsData[category];
+
+  // 1. Clear previous content
   
+  newsContainer.innerHTML = "";
+
+  //  Xulo maqaalka ugu horeeya ee loo muujinayo
+  const featured = articles[0];
+
+  // 2. Create container elements
+  const featuredArticle = document.createElement("div");
+  featuredArticle.className = "featured-article";
+
+  // 3. Create article element
+
+  const article = document.createElement("article");
+  article.className = "news-card featured";
+
+  // 4. Create and setup image
+
+  const image = document.createElement("img");
+  image.className = "news-image";
+  image.src = featured.image;
+  image.alt = featured.title;
+
+  // 5. Create content container
+
+  const contentDiv = document.createElement("div");
+  contentDiv.className = "news-content";
+
+    // 6. Create featured label
+
+  const label = document.createElement("span");
+  label.className = "featured-label";
+  label.textContent = "Featured Story";
+
+  
+  // 7. Create title
+
+  const title = document.createElement("h2");
+  title.className = "news-title";
+  title.textContent = featured.title;
+
+    // 8. Create date
+
+  const dateDiv = document.createElement("div");
+  dateDiv.className = "news-date";
+  dateDiv.textContent = featured.date;
+
+    // 9. Create excerpt
+
+  const excerpt = document.createElement("p");
+  excerpt.className = "news-excerpt";
+  excerpt.textContent = featured.excerpt;
+
+  // 10. Create tag
+
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent = featured.tag;
+
+  // 11. Assemble the elements 
+
+  contentDiv.appendChild(label);
+  contentDiv.appendChild(title);
+  contentDiv.appendChild(dateDiv);
+  contentDiv.appendChild(excerpt);
+  contentDiv.appendChild(tag);
+
+  article.appendChild(image);
+  article.appendChild(contentDiv);
+  featuredArticle.appendChild(article);
+
+  // 5. Ku dar maqaalka container-ka
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
 

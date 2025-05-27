@@ -30,7 +30,7 @@ const movies = [
   
   Steps:
   1. Use `.map` to create a new array where each item is a string in this format:
-     "[title] - Rating: [rating]/10"
+     
   2. Log the resulting array.
   
   Expected Output:
@@ -45,7 +45,13 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
+  const update = movies.map((items) => {
+
+ console.log(`${items.title} - rating ${items.rating}/10`)
+
+
+})
+
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
@@ -67,5 +73,11 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
+  const best = movies.filter((x) => {
+  return x.rating >= 8.0;
+  
+  // console.log()
+})
+console.log(best)
 
  
