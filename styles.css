@@ -192,3 +192,10 @@
     margin-top: 1rem;
     font-weight: 500;
   }
+  .down-footer {
+    background: #1e293b;
+    color: white;
+    padding: 10px;
+    margin-top: 50px;
+    text-align: center;
+  }
