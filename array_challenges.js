@@ -20,6 +20,8 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
   ];
+
+  
   
   /*
   
@@ -45,6 +47,12 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+//  const itemmov = movies.map((item) =>{
+//  return `${item.title} ${item.rating}`
+// })
+
+// console.log(itemmov)
   
   
   /*
@@ -66,6 +74,11 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+//   const highrm = movies.filter((item) =>{
+//     return item.rating >= 8.0  })
+
+// console.log(highrm)
 
 
  
