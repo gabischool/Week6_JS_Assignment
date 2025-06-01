@@ -45,7 +45,10 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
-  
+  const movie=movies.map((movie) => {
+    return `${movie.title} - Rating: ${movie.rating}/10`;
+  })
+  console.log(movie);
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
@@ -67,5 +70,7 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-
- 
+  const highly = movies.filter((movie) => {
+    return movie.rating >=8.0;})
+  console.log(highly);
+   
