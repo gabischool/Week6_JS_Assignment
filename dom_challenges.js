@@ -1,5 +1,5 @@
 
-// News articles data organized by category
+// // News articles data organized by category
 export const newsData = {
   'Latest News': [
     {
@@ -126,31 +126,69 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+
+  const newsgrid=document.querySelector(".news-grid")
+  newsgrid.innerHTML="";
+
+
   
   // 2. Create container elements
+
+  const featuredArticle=document.createElement("div")
+  featuredArticle.className="featured-article"
   
   // 3. Create article element
+
+  const  featured=document.createElement("article")
+
+ featured.className="news-card featured"
   
   // 4. Create and setup image
-  
+  const articleimg=document.createElement("img")
+  articleimg.src=articles.img;
+  articleimg.alt=articles.title;
+  articleimg.className="news-image"
   // 5. Create content container
+  const content=document.createElement("div")
+  content.className="news-content"
   
   // 6. Create featured label
+  const label=document.createElement("span")
+  label.className="featured-label"
   
   // 7. Create title
+  const heading=document.createElement("h2")
+  heading.className="news-title"
+
   
   // 8. Create date
+
+  const seconddiv=document.createElement("div")
+  seconddiv.className="news-date"
   
   // 9. Create excerpt
+  const pragraph=document.createElement("p")
+  pragraph.className="news-excerpt"
   
   // 10. Create tag
-  
+ const span = document.createElement("span");
+span.className = "tag";
+
   // 11. Assemble the elements
+  content.appendChild(label);
+content.appendChild(heading);
+content.appendChild(seconddiv);
+content.appendChild(pragraph);
+content.appendChild(span);
+featured.appendChild(articleimg);
+featured.appendChild(content);
+featuredArticle.appendChild(featured);
+newsgrid.appendChild(featuredArticle);
 
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
 }
-
+console.log("dommm")
 
 // DO NOT CHANGE THIS
 document.addEventListener('DOMContentLoaded', () => {
