@@ -34,7 +34,7 @@ const movies = [
   2. Log the resulting array.
   
   Expected Output:
-  [
+  [t
     "Fast & Furious 10 - Rating: 7.5/10",
     "The Notebook - Rating: 8.0/10",
     "Spider-Man: No Way Home - Rating: 8.7/10",
@@ -45,6 +45,13 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+console.log(77)
+
+  const newarray= movies.map((movetitle)=>{
+    return`${movetitle.title}  rating  ${movetitle.rating} /10`
+  })
+
+  console.log(newarray)
   
   
   /*
@@ -67,5 +74,11 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
+  const movies2= movies.filter((item)=>{
+    if(item.rating>=8.0){
+      return item
+    }
+  })
+  console.log(movies2)
 
  
