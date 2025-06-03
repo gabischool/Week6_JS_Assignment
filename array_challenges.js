@@ -3,7 +3,8 @@
 
 The Dataset: Movie Mania
 
-You are managing a database for a **movie rental platform** called **Movie Mania**. The dataset is an array of objects, where each object represents a movie with the following properties:
+You are managing a database for a **movie rental platform** called **Movie Mania**. The dataset is an array of objects,
+ where each object represents a movie with the following properties:
 
 - `title` (string): The title of the movie.
 - `genre` (string): The genre of the movie (e.g., "Action", "Comedy", "Drama").
@@ -46,7 +47,12 @@ const movies = [
   
   // ✍️ Solve it here ✍️
   
-  
+  const movieTitlRatings = movies.map(movie => {
+  return `${movie.title} - Rating: ${movie.rating}/10`;
+});
+
+console.log(movieTitlRatings);
+
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
@@ -68,4 +74,6 @@ const movies = [
   // ✍️ Solve it here ✍️
 
 
- 
+ const RatedMovies = movies.filter(movie => movie.rating >= 8.0);
+
+console.log(RatedMovies);
