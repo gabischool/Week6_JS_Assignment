@@ -126,29 +126,92 @@ export function displayArticles(category) {
   const articles = newsData[category];
   
   // 1. Clear previous content
+   newsContainer.innerHTML = "";
   
   // 2. Create container elements
   
+      const featuredArticle = document.createElement("div");
+
+      featuredArticle.className = "featured-article";
+  
   // 3. Create article element
+    const news_cards = document.createElement("article");
+
+    news_cards.classList.add("news-card", "featured");
   
   // 4. Create and setup image
+   const article_images = document.createElement("img");
+
+   article_images.src = articles[0].image;
+
+   article_images.alt = articles[0].title;
+
+   article_images.className = "news-image";
   
   // 5. Create content container
+    const conten_container = document.createElement("div");
+
+    conten_container.className = "news-content";
   
   // 6. Create featured label
+   const featured_label = document.createElement("span");
+
+   featured_label.className = "featured-label";
+
+   featured_label.textContent = "Featured Story";
   
   // 7. Create title
+   const news_title = document.createElement("h2");
+
+   news_title.className = "news-title";
+
+   news_title.textContent = articles[0].title;
   
   // 8. Create date
+    const news_date = document.createElement("div");
+
+    news_date.className = "news-date";
+
+    news_date.textContent = articles[0].date;
   
   // 9. Create excerpt
+    const news_excerpt = document.createElement("p");
+
+    news_excerpt.className = "news-excerpt";
+
+    news_excerpt.textContent = articles[0].excerpt;
+
   
   // 10. Create tag
+    const news_tags = document.createElement("span");
+
+    news_tags.className = "tag";
+    
+    news_tags.textContent = articles[0].tag;
   
   // 11. Assemble the elements
+   featuredArticle.append(
+    news_cards 
+  );
+
+  news_cards.append(
+    article_images, 
+    conten_container 
+  );
+
+  conten_container.append(
+    featured_label, 
+    news_title, 
+    news_date, 
+    news_excerpt, 
+    news_tags 
+  );
+
+  newsContainer.append(news_cards);
 
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+   return newsContainer;
 }
 
 

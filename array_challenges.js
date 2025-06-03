@@ -45,6 +45,15 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+  const  moviesList = movies.map((item)=>{
+
+  return item.title + " " + item.rating;
+
+
+
+})
+console.log( moviesList);
+
   
   
   /*
@@ -66,6 +75,17 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+  
+
+  const  highlyRated = movies.filter((item) => {
+
+  return item.rating >= 8.0;
+
+})
+
+
+console.log(highlyRated);
+
 
 
  
