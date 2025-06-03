@@ -124,31 +124,103 @@ export const newsData = {
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
-  // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  // <div class="featured-article">
+  //   <article class="news-card featured">
+  //     <img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
+  //     <div class="news-content">
+  //       <span class="featured-label">Featured Story</span>
+  //       <h2 class="news-title">GPT-5 Announcement: OpenAI Reveals Next-Generation AI Model</h2>
+  //       <div class="news-date">March 14, 2024</div>
+  //       <p class="news-excerpt">OpenAI's latest language model demonstrates unprecedented reasoning capabilities and achieves human-level performance across various domains.</p>
+  //       <span class="tag">Artificial Intelligence</span>
+  //     </div>
+  //   </article>
+  // </div>
+
+  // 1. Clear previous content
+      newsContainer.innerHTML = '';
+  // 2. Create container elements
+   const featuredArticleContainer = document.createElement("div");
+  featuredArticleContainer.className = "featured-article";
+  // 3. Create article element
+   const featured = articles[0];
+
+  const articleEl = document.createElement("article");
+  articleEl.className = "news-card featured";
+  // 4. Create and setup image
+   const img = document.createElement("img");
+  img.className = "news-image";
+  img.src = featured.image;
+  img.alt = featured.title;
+  // 5. Create content container
+   const contentDiv = document.createElement("div");
+  contentDiv.className = "news-content";
+  // 6. Create featured label
+  const label = document.createElement("span");
+  label.className = "featured-label";
+  label.textContent = "Featured Story";
+  // 7. Create title
+    const title = document.createElement("h2");
+  title.className = "news-title";
+  title.textContent = featured.title;
+  // 8. Create date
+      const date = document.createElement("div");
+  date.className = "news-date";
+  date.textContent = featured.date;
+  // 9. Create excerpt
+    const excerpt = document.createElement("p");
+  excerpt.className = "news-excerpt";
+  excerpt.textContent = featured.excerpt;
+  // 10. Create tag
+     const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent = featured.tag;
+  // 11. Assemble the elements
+  contentDiv.append(label, title, date, excerpt, tag);
+  articleEl.append(img, contentDiv);
+  featuredArticleContainer.append(articleEl);
+  newsContainer.append(featuredArticleContainer);
+
+  const newsGrid = document.createElement("div");
+  newsGrid.className = "news-grid";
+
+  for (let i = 1; i < articles.length; i++) {
+    const article = articles[i];
+
+    const articleEl = document.createElement("article");
+    articleEl.className = "news-card";
+
+    const img = document.createElement("img");
+    img.className = "news-image";
+    img.src = article.image;
+    img.alt = article.title;
+
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "news-content";
+
+    const title = document.createElement("h2");
+    title.className = "news-title";
+    title.textContent = article.title;
+
+    const date = document.createElement("div");
+    date.className = "news-date";
+    date.textContent = article.date;
+
+    const excerpt = document.createElement("p");
+    excerpt.className = "news-excerpt";
+    excerpt.textContent = article.excerpt;
+
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = article.tag;
+
+    contentDiv.append(title, date, excerpt, tag);
+    articleEl.append(img, contentDiv);
+    newsGrid.append(articleEl);
+  }
+
+  newsContainer.append(newsGrid);
 }
 
 
