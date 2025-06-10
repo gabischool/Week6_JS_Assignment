@@ -1,4 +1,3 @@
-
 // News articles data organized by category
 export const newsData = {
   'Latest News': [
@@ -121,31 +120,79 @@ export const newsData = {
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
+// const newsnav = document.querySelector("main-nav")
+
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
+
+  
   
   // 1. Clear previous content
+  newsContainer.innerHTML = "";
   
+
   // 2. Create container elements
+  const featuredArticle = document.createElement("div")
+  featuredArticle.className = "featured-article"
   
   // 3. Create article element
+  const articleElment = document.createElement("div")
+  articleElment.className = "news-card featured"
   
   // 4. Create and setup image
+  const newsimg = document.createElement("img")
+  newsimg.src = articles [0].image;
+  newsimg.alt = articles [0].name;
+  newsimg.className = "news-img"
   
   // 5. Create content container
-  
+  const newsContent = document.createElement("div")
+  newsContent.className = "news-content"
   // 6. Create featured label
+  const newsfeaturedlabel = document.createElement("span")
+  newsfeaturedlabel.className = "featured-label"
+  newsfeaturedlabel.textContent = articles.label
+  
+
+ 
   
   // 7. Create title
+  const newsTittle = document.createElement("h2")
+  newsTittle.textContent = articles.title
   
   // 8. Create date
+  const newsDate = document.createElement("div")
+  newsDate.className = "news-date"
   
   // 9. Create excerpt
+  const newsExcerpt = document.createElement("p")
+  newsExcerpt.textContent = articles.excerpt
   
   // 10. Create tag
+  const newsTag = document.createElement("span")
+  newsTag.className = "tag"
+  newsTag.textContent = articles.tag
   
   // 11. Assemble the elements
+  
+
+newsContent.append(newsTittle, newsDate, newsExcerpt, newsTag);
+articleElment.append(newsimg, newsContent);
+featuredArticle.append(articleElment);
+newsContainer.append(featuredArticle);
+
+
+
+
+
+
+
+
+
+
+
+ 
 
   
   newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
@@ -158,3 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
   displayArticles(defaultCategory);  // Display articles for the default category
   document.querySelector(`.nav-links a[data-category="${defaultCategory}"]`).classList.add('active');  // Set active class
 });
+
+
+
+
+
+
+
+
