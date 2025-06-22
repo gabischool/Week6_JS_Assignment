@@ -120,36 +120,73 @@ export const newsData = {
 
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
-
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
-  
-  // 1. Clear previous content
-  
-  // 2. Create container elements
-  
-  // 3. Create article element
-  
-  // 4. Create and setup image
-  
-  // 5. Create content container
-  
-  // 6. Create featured label
-  
-  // 7. Create title
-  
-  // 8. Create date
-  
-  // 9. Create excerpt
-  
-  // 10. Create tag
-  
-  // 11. Assemble the elements
 
-  
-  newsContainer.insertBefore(featuredArticle, newsContainer.firstChild);
+  // 1. Clear previous content
+  newsContainer.innerHTML = "";
+
+  // 2. Loop through articles in selected category
+  articles.forEach((articleData, index) => {
+    // 3. Create article wrapper
+    const wrapper = document.createElement("div");
+    wrapper.className = index === 0 ? "featured-article" : "news-article";
+
+    // 4. Create article element
+    const article = document.createElement("article");
+    article.className = index === 0 ? "news-card featured" : "news-card";
+
+    // 5. Create and setup image
+    const img = document.createElement("img");
+    img.className = "news-image";
+    img.src = articleData.image;
+    img.alt = articleData.title;
+
+    // 6. Create content container
+    const content = document.createElement("div");
+    content.className = "news-content";
+
+    // 7. Add featured label if first article
+    if (index === 0) {
+      const featuredLabel = document.createElement("span");
+      featuredLabel.className = "featured-label";
+      featuredLabel.textContent = "Featured Story";
+      content.appendChild(featuredLabel);
+    }
+
+    // 8. Create and add title
+    const title = document.createElement("h2");
+    title.className = "news-title";
+    title.textContent = articleData.title;
+
+    // 9. Create and add date
+    const date = document.createElement("div");
+    date.className = "news-date";
+    date.textContent = articleData.date;
+
+    // 10. Create and add excerpt
+    const excerpt = document.createElement("p");
+    excerpt.className = "news-excerpt";
+    excerpt.textContent = articleData.excerpt;
+
+    // 11. Create and add tag
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = articleData.tag;
+
+    // 12. Assemble elements
+    content.appendChild(title);
+    content.appendChild(date);
+    content.appendChild(excerpt);
+    content.appendChild(tag);
+    article.appendChild(img);
+    article.appendChild(content);
+    wrapper.appendChild(article);
+    newsContainer.appendChild(wrapper);
+  });
 }
+
 
 
 // DO NOT CHANGE THIS
