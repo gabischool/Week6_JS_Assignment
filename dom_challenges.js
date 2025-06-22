@@ -120,6 +120,7 @@ export const newsData = {
 
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
+
 export function displayArticles(category) {
   const newsContainer = document.querySelector('#news-container');
   const articles = newsData[category];
@@ -186,7 +187,6 @@ export function displayArticles(category) {
     newsContainer.appendChild(wrapper);
   });
 }
-
 
 
 // DO NOT CHANGE THIS

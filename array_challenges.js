@@ -21,11 +21,6 @@ const movies = [
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false , landscope:4563 }
   ];
   
-const movi=movies.reduce((add,current)=>{
-  console.log("add",add.landscope)
-  console.log("current",current)
-  return current+add.landscope
-},0)
 
   /*
   
@@ -57,6 +52,9 @@ const titleArating=movies.map((items)=>{
   return items.title+" -Rating" +items.rating+"/10";
 })
 console.log(titleArating);
+
+
+
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
@@ -78,6 +76,8 @@ console.log(titleArating);
   // ✍️ Solve it here ✍️
 
 
+
+  
  const highlyratemovies=movies.filter((items)=>{
   return items.rating>=8.0;
  })
