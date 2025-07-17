@@ -153,37 +153,71 @@ export const newsData = {
 export function displayArticles(category, featuredArticle = null) {
   const newsContainer = document.querySelector("#news-container");
   const articles = newsData[category];
-  
-  // Use the provided featured article or default to the first one
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
+      newsContainer.innerHTML = "";
 
   // 2. Create container elements
+const featuredArticlediv = document.createElement("div")
+featuredArticlediv.className = "featured-Article"
 
 
   // 3. Create article element
+const articleElement = document.createElement("article")
+articleElement.className = "news-card featured"
 
   // 4. Create and setup image
+  const newsImage = document.createElement("img")
+  newsImage.src = article.image
+  newsImage.alt = article.title
+  newsImage.className = "news-image"
+
 
   // 5. Create content container
+  const newsContent = document.createElement("div")
+  newsContent.className = "news-content"
 
   // 6. Create featured label
+  const featuredLabel = document.createElement("span")
+  featuredLabel.className = "featured-label"
+  featuredLabel.textContent = "Featured Story"
 
   // 7. Create title
+  const newsTitle = document.createElement("h2")
+  newsTitle.className = "news-title"
+  newsTitle.textContent = article.title
+
 
   // 8. Create date
+  const newsDate = document.createElement("div")
+  newsDate.className = "news-date"
+  newsDate.textContent = article.date
+
 
   // 9. Create excerpt
+  const newsExcerpt = document.createElement("p")
+  newsExcerpt.className = "news-excerpt"
+  newsExcerpt.textContent = article.excerpt
 
   // 10. Create tag
-
+const tag = document.createElement("span")
+tag.className = "tag"
+tag.textContent = article.tag
 
   // 11. Assemble the elements
- 
+  featuredArticlediv.append(articleElement)
+  articleElement.append(newsImage)
+  articleElement.append(newsContent)
+  newsContent.append(featuredLabel)
+  newsContent.append(newsTitle)
+  newsContent.append(newsDate)
+  newsContent.append(newsExcerpt)
+  newsContent.append(tag)
 
   // 12. Append the article container to the news container
-
+  newsContainer.append(featuredArticlediv)
+return newsContainer
 }
 
 // DO NOT CHANGE THIS
