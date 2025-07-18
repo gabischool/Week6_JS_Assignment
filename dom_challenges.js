@@ -10,7 +10,6 @@ export const newsData = {
       tag: "Artificial Intelligence",
     },
       excerpt:
-        "Starship completes its most ambitious mission yet, deploying 50 satellites in a single launch and advancing global internet coverage goals.",
       image: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2",
       tag: "Space Tech",
     },
