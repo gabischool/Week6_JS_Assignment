@@ -9,9 +9,6 @@ export const newsData = {
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
       tag: "Artificial Intelligence",
     },
-    {
-      title: "SpaceX Successfully Launches New Satellite Constellation",
-      date: "March 13, 2024",
       excerpt:
         "Starship completes its most ambitious mission yet, deploying 50 satellites in a single launch and advancing global internet coverage goals.",
       image: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2",
@@ -158,33 +155,103 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
+  newsContainer.innerHTML = "";
 
-  // 2. Create container elements
-
+  // 2. Create container for featured article
+  const featuredDiv = document.createElement("div");
+  featuredDiv.classList.add("featured-article");
 
   // 3. Create article element
+  const articleElement = document.createElement("article");
+  articleElement.classList.add("news-card", "featured");
 
   // 4. Create and setup image
+  const image = document.createElement("img");
+  image.classList.add("news-image");
+  image.src = article.image;
+  image.alt = article.title;
 
   // 5. Create content container
+  const contentDiv = document.createElement("div");
+  contentDiv.classList.add("news-content");
 
   // 6. Create featured label
+  const featuredLabel = document.createElement("span");
+  featuredLabel.classList.add("featured-label");
+  featuredLabel.textContent = "Featured Story";
 
   // 7. Create title
+  const title = document.createElement("h2");
+  title.classList.add("news-title");
+  title.textContent = article.title;
 
   // 8. Create date
+  const date = document.createElement("div");
+  date.classList.add("news-date");
+  date.textContent = article.date;
 
   // 9. Create excerpt
+  const excerpt = document.createElement("p");
+  excerpt.classList.add("news-excerpt");
+  excerpt.textContent = (featuredArticle || articles[0]).excerpt;
 
   // 10. Create tag
-
+  const tag = document.createElement("span");
+  tag.classList.add("tag");
+  tag.textContent = (featuredArticle || articles[0]).tag;
 
   // 11. Assemble the elements
- 
+    featuredDiv.appendChild(articleElement);
+  articleElement.appendChild(image);
+  articleElement.appendChild(contentDiv);
+  contentDiv.appendChild(featuredLabel);
+  contentDiv.appendChild(title);
+  contentDiv.appendChild(date);
+  contentDiv.appendChild(excerpt);
+  contentDiv.appendChild(tag);  
+
 
   // 12. Append the article container to the news container
+  newsContainer.appendChild(featuredDiv);
+  // 13. Create and append other articles
+  articles.slice(1).forEach((article) => {  
+    const otherArticle = document.createElement("article");
+    otherArticle.classList.add("news-card");
 
-}
+    const otherImage = document.createElement("img");
+    otherImage.classList.add("news-image");
+    otherImage.src = article.image;
+    otherImage.alt = article.title;
+
+    const otherContentDiv = document.createElement("div");
+    otherContentDiv.classList.add("news-content");
+
+    const otherTitle = document.createElement("h2");
+    otherTitle.classList.add("news-title");
+    otherTitle.textContent = article.title;
+
+    const otherDate = document.createElement("div");
+    otherDate.classList.add("news-date");
+    otherDate.textContent = article.date;
+
+    const otherExcerpt = document.createElement("p");
+    otherExcerpt.classList.add("news-excerpt");
+    otherExcerpt.textContent = article.excerpt;
+
+    const otherTag = document.createElement("span");
+    otherTag.classList.add("tag");
+    otherTag.textContent = article.tag;
+
+    // Assemble the elements
+    newsContainer.appendChild(otherArticle);
+    otherArticle.appendChild(otherImage);
+    otherArticle.appendChild(otherContentDiv);
+    otherContentDiv.appendChild(otherTitle);
+    otherContentDiv.appendChild(otherDate);
+    otherContentDiv.appendChild(otherExcerpt);
+    otherContentDiv.appendChild(otherTag);
+  }
+  );
 
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
