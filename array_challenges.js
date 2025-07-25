@@ -45,6 +45,21 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+  const MovieMania =[
+    {title: "fast & furious 10" , genre: "action",rating: 7.5, rented: true},
+    {title: "the note book", genre: "drama", rating: 8.0, rented: false},
+    {title: "spider-man no way home", genre: "action" , rating: 8.7, rented: true},
+    {title: "superbad" , genre: "comady", rating: 7.0, rented: false},
+    {title: "the dark knight", genre: "action", rating: 9.0, rented: true},
+    {title: "the interm" ,genre: "comady", rating: 7.4, rented: false},
+  ];
+
+  const RatingMovies =MovieMania.map(function(item){
+    return `title: ${item.title},rating: ${item.rating}`
+  });
+
+  console.log(RatingMovies);
   
   
   /*
@@ -66,6 +81,14 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+
+  const highlyRating =MovieMania.filter(function(items){
+    return items.rating >= 8.0
+  });
+
+  console.log(highlyRating);
+
+  
 
 
  
