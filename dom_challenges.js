@@ -158,32 +158,61 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+    newsContainer.innerHTML="";
   // 2. Create container elements
-
-
+  const currentnews=document.createElement("div")
+  currentnews.className="featured-article"
   // 3. Create article element
+  const newsarticle=document.createElement("article")
+  newsarticle.className="news-card featured"
 
   // 4. Create and setup image
-
+  const newsimage=document.createElement("img")
+  newsimage.className="news-image"
+  newsimage.src=article.image
+  newsimage.alt=article.tag
+  
   // 5. Create content container
+  const newscontentContainer=document.createElement("div")
+  newscontentContainer.className="news-content"
 
   // 6. Create featured label
+  const featurelabel=document.createElement("span")
+  featurelabel.className="featured-label"
+  featurelabel.textContent="Featured Story"
 
   // 7. Create title
-
+  const newstitle=document.createElement("h2")
+  newstitle.className="news-title"
+  newstitle.textContent=articles.title
+  
   // 8. Create date
-
+  const newsdate=document.createElement("div")
+  newsData.className="news-date"
+  newsData.textContent="March 14, 2024"
   // 9. Create excerpt
-
+  const newsexcerpt=document.createElement("p")
+  newsexcerpt.className="news-excerpt"
+  newsexcerpt.textContent=articles.excerpt
   // 10. Create tag
-
+  const newstag=document.createElement("span")
+  newstag.className="tag"
+  newstag.textContent=articles.tag
 
   // 11. Assemble the elements
- 
+  currentnews.append(newsarticle)
+  newsarticle.append(newsimage)
+  newsarticle.append(newscontentContainer)
+  newscontentContainer.append(featurelabel)
+  newscontentContainer.append(newstitle)
+  newscontentContainer.append(newsdate)
+  newscontentContainer.append(newsexcerpt)
+  newscontentContainer.append(newstag)
 
   // 12. Append the article container to the news container
+  newsContainer.append(currentnews)
 
+  return newsContainer;
 }
 
 // DO NOT CHANGE THIS
