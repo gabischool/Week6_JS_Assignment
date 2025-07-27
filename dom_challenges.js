@@ -158,25 +158,62 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
+  newsContainer.innerHTML ="";
+  
 
   // 2. Create container elements
-
+  const newsDataContainer = document.createElement ("div")
+  newsDataContainer.className = "featured-article"
+  
+  
 
   // 3. Create article element
+  const newsCard = document.createElement("article")
+  newsCard.className = "news-card featured"
+
+  
+
 
   // 4. Create and setup image
+  const newImage = document.createElement("img")
+  newImage.src= article.image
+  newImage.alt= article.tag
+  newImage.className = "news-image"
+
+  
 
   // 5. Create content container
-
+  const contentContainer = document.createElement("div")
+  contentContainer.className= "news-content"
   // 6. Create featured label
+  const featuredlabel = document.createElement("span")
+  featuredlabel.className = "featured-label"
+  featuredlabel.textContent = "Featured Story"
+
 
   // 7. Create title
+const  newTitle = document.createElement("h2")
+newTitle.textContent = article.title
+newTitle.className = "news-title"
 
   // 8. Create date
+  const newsDate = document.createElement("div")
+  newsDate.className = "news-date"
+  newsDate.textContent= article.date
+
 
   // 9. Create excerpt
+  const newExpert = document.createElement("p")
+  newExpert.className = "news-excerpt"
+  newExpert.textContent = article.excerpt
+
 
   // 10. Create tag
+  const newTag = document.createElement("span")
+  newTag.className = "tag"
+  newTag.textContent = article.tag
+  
+
 
 
   // 11. Assemble the elements
@@ -184,7 +221,27 @@ export function displayArticles(category, featuredArticle = null) {
 
   // 12. Append the article container to the news container
 
+newsDataContainer.append(newsCard )
+
+newsCard.append(newImage)
+newsCard.append(contentContainer)
+contentContainer.append(featuredlabel)
+contentContainer.append(newTitle)
+contentContainer.append(newsDate)
+contentContainer.append(newExpert)
+contentContainer.append(newTag)
+
+newsContainer.append(newsDataContainer)
+return newsContainer
+
+
+
+
 }
+
+console.log(displayArticles("Latest News"))
+
+
 
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
