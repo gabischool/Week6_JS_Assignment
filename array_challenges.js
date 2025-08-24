@@ -68,7 +68,8 @@ console.log(shabhan)
     { title: "Spider-Man: No Way Home", genre: "Action", rating: 8.7, rented: true },
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true }
   ]
-  */const hani= movies.filter(function(Movie){
+  */
+ const hani= movies.filter(function(Movie){
     return Movie.rating >= 8.0
   })
   console.log(hani)

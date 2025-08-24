@@ -141,7 +141,7 @@ function displayArticles(category) {
     
     const newImage = document.createElement("img");
     newImage.className = "news-image"
-    newImage.src = articles[1].image
+    newImage.src = articles[0].image
     featureArticleElement.appendChild(newImage)
     
     const newsContent = document.createElement("div");
@@ -175,7 +175,7 @@ function displayArticles(category) {
 
    featureArticle.appendChild(featureArticleElement);
   
-    
+     
     
     // Add featured article to container
     newsContainer.appendChild(featureArticle);
@@ -189,26 +189,26 @@ function displayArticles(category) {
     articles.slice(1).forEach(function(Shabhaan){
      const artcleCard = document.createElement("article");
      artcleCard.className = "news-card";
-
+     
      const img = document.createElement("img");
      img.className = "news-image";
      img.src = Shabhaan.image;
      artcleCard.appendChild(img);
-
+      console.log(Shabhaan.title)
      const newsContent = document.createElement("div");
      newsContent.className = "news-content";
-    
+    console.log(newsContent)
      const title2 = document.createElement("h2");
      title2.className = "news-title"
      title2.textContent = Shabhaan.title
     newsContent.appendChild(title2);
 
 
-    const newDates = document.createElement("div");
-    newDates.className = "news-date"
-    newDates.textContent = Shabhaan.date
-    newsContent.appendChild(newDates)
-
+    const newDate = document.createElement("div");
+    newDate.className = "news-date"
+    newDate.textContent = Shabhaan.date
+    newsContent.appendChild(newDate)
+     
     const p = document.createElement("p");
     p.className = "news-excerpt"
     p.textContent = Shabhaan.excerpt
@@ -233,7 +233,7 @@ function displayArticles(category) {
     // Add grid to container
     newsContainer.appendChild(newsGrid);
   }
-  
+
   
   // Show initial articles
   displayArticles('Latest News');
