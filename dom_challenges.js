@@ -158,32 +158,57 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+newsContainer.innerHTML = "";
   // 2. Create container elements
-
+ const featuredMain = document.createElement("div");
 
   // 3. Create article element
+const articleElement = document.createElement("article");
+articleElement.classList.add("news-card", "featured")
 
   // 4. Create and setup image
-
+const imgElement = document.createElement("img");
+imgElement.className ="news-image"
+imgElement.src = article.image;
+imgElement.alt = article.title;
   // 5. Create content container
-
+const contentElement = document.createElement("div");
+contentElement.className ="news-content"
   // 6. Create featured label
-
+const labelElement = document.createElement("span");
+labelElement.className ="featured-label"
+labelElement.textContent = "Featured Story";
   // 7. Create title
-
+const titleElement = document.createElement("h2");
+titleElement.className ="news-title"
+titleElement.textContent = article.title;
   // 8. Create date
+ const dateElement = document.createElement("div");
+dateElement.className ="news-date"
+dateElement.textContent = article.date;
 
   // 9. Create excerpt
-
+  const excerptElement = document.createElement("p");
+excerptElement.className ="news-excerpt"
+excerptElement.textContent = article.excerpt;
   // 10. Create tag
-
+const tagElement = document.createElement("span");
+tagElement.className ="tag"
+tagElement.textContent = article.tag;
 
   // 11. Assemble the elements
- 
+ contentElement.appendChild(labelElement);
+contentElement.appendChild(titleElement);
+contentElement.appendChild(dateElement);
+contentElement.appendChild(excerptElement);
+contentElement.appendChild(tagElement);
+articleElement.appendChild(imgElement);
+articleElement.appendChild(contentElement);
+
+featuredMain.appendChild(articleElement);
 
   // 12. Append the article container to the news container
-
+newsContainer.appendChild(featuredMain);
 }
 
 // DO NOT CHANGE THIS
