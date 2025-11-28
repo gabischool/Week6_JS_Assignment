@@ -20,7 +20,6 @@ const movies = [
     { title: "The Dark Knight", genre: "Action", rating: 9.0, rented: true },
     { title: "The Intern", genre: "Comedy", rating: 7.4, rented: false }
   ];
-  
   /*
   
   Task 1: Movie Titles and Ratings 🎥 (`.map`)
@@ -43,9 +42,19 @@ const movies = [
     "The Intern - Rating: 7.4/10"
   ]
   */
+ //return `${movie.title}  Rating: ${movie.rating}/10`
   
   // ✍️ Solve it here ✍️
   
+  const moviesList = movies.map((movie)=>{
+    
+      return `${movie.title} - Rating: ${movie.rating}/10`;
+
+  });
+  console.log(moviesList) 
+ 
+ 
+   
   
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
@@ -67,5 +76,9 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-
+const highlyMovie = movies.filter((movie)=>{
+  return movie.rating >= 8.0
+})
+  
+console.log(highlyMovie)
  

@@ -158,31 +158,65 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+   newsContainer.innerHTML = "";
+  
   // 2. Create container elements
-
+  const featureArticles = document.createElement ("div")
+  featureArticles.className = "featured-article"
 
   // 3. Create article element
+  const articleElement = document.createElement ("article")
+  articleElement.className = "news-card featured"
 
   // 4. Create and setup image
-
+  const imageMain = document.createElement ("img")
+  imageMain.className = "news-image"
+ imageMain.src = article.image || "";
+imageMain.alt = article.title || "News image";
   // 5. Create content container
+  const contentContainer = document.createElement("div")
+  contentContainer.className = "news-content"
+
 
   // 6. Create featured label
+  const featureLabell = document.createElement ("span")
+  featureLabell.textContent = "Featured Story"
 
   // 7. Create title
+  const newsTitle = document.createElement ("h2")
+  newsTitle.className = "news-title"
+  newsTitle.textContent = article.title
 
   // 8. Create date
+  const newsdata = document.createElement ("div")
+  newsdata.className = "news-date"
+  newsdata.textContent = article.date
 
   // 9. Create excerpt
+  const excerptMain = document.createElement ("p")
+  excerptMain.className = "news-excerpt"
+  excerptMain.textContent = article.excerpt
 
   // 10. Create tag
-
+  const createTag = document.createElement("span")
+  createTag.className ="tag"
+  createTag.textContent = article.tag
 
   // 11. Assemble the elements
- 
+  contentContainer.appendChild(featureLabell)
+  contentContainer.appendChild( newsTitle)
+  contentContainer.appendChild (newsdata)
+  contentContainer.append(excerptMain)
+  contentContainer.appendChild(createTag)
+
+  featureArticles.appendChild(articleElement)
+  featureArticles.appendChild(imageMain)
+
+  
 
   // 12. Append the article container to the news container
+  newsContainer.appendChild(featureArticles)
+  
 
 }
 
@@ -193,4 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector(`.nav-links a[data-category="${defaultCategory}"]`)
     .classList.add("active"); // Set active class
+
+    
 });
