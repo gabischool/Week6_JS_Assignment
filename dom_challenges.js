@@ -158,32 +158,55 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+newsContainer.innerHTML="";
   // 2. Create container elements
-
+const containerElement = document.createElement("div")
+containerElement.className = "featured-article"
 
   // 3. Create article element
-
+const articleElement = document.createElement("article")
+articleElement.className = "news-card featured"
   // 4. Create and setup image
-
+const imageElement = document.createElement("img")
+imageElement.className = "news-image"
+imageElement.src = article.image;
+imageElement.alt = article.title;
   // 5. Create content container
-
+const contentContainer = document.createElement("div")
+contentContainer.className = "news-content"
   // 6. Create featured label
-
+const featuredLabel = document.createElement("span")
+featuredLabel.className = "featured-label"
   // 7. Create title
-
+const titleElement = document.createElement("h2")
+titleElement.className = "news-title"
+titleElement.textContent = article.title
   // 8. Create date
-
+const Date = document.createElement("div")
+Date.className = "news-date"
+Date.textContent = article.date;
   // 9. Create excerpt
-
+const Excerpt = document.createElement("p")
+Excerpt.classname = "news-exerpt"
+Excerpt.textContent = article.excerpt;
   // 10. Create tag
-
+const Tag = document.createElement("span")
+Tag.className = "tag"
+Tag.textContent = article.tag;
 
   // 11. Assemble the elements
- 
+ containerElement.append(articleElement)
+ containerElement.append(imageElement)
+ containerElement.append(contentContainer)
+ containerElement.append(featuredLabel)
+ containerElement.append(titleElement)
+ containerElement.append(Date)
+ containerElement.append(Excerpt)
+ containerElement.append(Tag)
 
   // 12. Append the article container to the news container
-
+newsContainer.append(containerElement)
+return newsContainer;
 }
 
 // DO NOT CHANGE THIS
