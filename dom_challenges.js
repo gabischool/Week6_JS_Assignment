@@ -158,31 +158,57 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+ newsContainer.innerHTML ="";
   // 2. Create container elements
-
+const featuredDiv = document.createElement("div");
+featuredDiv.classList.add("featured-article");
 
   // 3. Create article element
-
+const articleCard = document.createElement("article");
+articleCard.classList.add("news-card", "featured");
   // 4. Create and setup image
-
+ const img = document.createElement("img");
+  img.classList.add("news-image");
+  img.src = article.image;
+  img.alt = article.title;
   // 5. Create content container
-
+const contentDiv = document.createElement("div");
+  contentDiv.classList.add("news-content");
   // 6. Create featured label
-
+const featuredLabel = document.createElement("span");
+  featuredLabel.classList.add("featured-label");
+  featuredLabel.textContent = "Featured Story";
   // 7. Create title
-
+const titleEl = document.createElement("h2");
+  titleEl.classList.add("news-title");
+  titleEl.textContent = article.title;
   // 8. Create date
+const dateEl = document.createElement("div");
+  dateEl.classList.add("news-date");
+  dateEl.textContent = article.date;
 
   // 9. Create excerpt
-
+const excerptEl = document.createElement("p");
+  excerptEl.classList.add("news-excerpt");
+  excerptEl.textContent = article.excerpt;
   // 10. Create tag
-
+const tagEl = document.createElement("span");
+  tagEl.classList.add("tag");
+  tagEl.textContent = article.tag;
 
   // 11. Assemble the elements
- 
+ contentDiv.appendChild(featuredLabel);
+  contentDiv.appendChild(titleEl);
+  contentDiv.appendChild(dateEl);
+  contentDiv.appendChild(excerptEl);
+  contentDiv.appendChild(tagEl);
+
+  articleCard.appendChild(img);
+  articleCard.appendChild(contentDiv);
+  featuredDiv.appendChild(articleCard);
 
   // 12. Append the article container to the news container
+newsContainer.appendChild(featuredDiv);
 
 }
 
