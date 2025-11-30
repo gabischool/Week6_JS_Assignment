@@ -158,33 +158,83 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
+  newsContainer.innerHTML = "";
 
   // 2. Create container elements
+  const featuredDiv = document.createElement("div");
+  featuredDiv.classList.add("featured-article");
+
 
 
   // 3. Create article element
+  const articlelement = document.createElement("article");
+  articlelement.classList.add("news-card,feafured");
 
   // 4. Create and setup image
+const img = document.createElement("img");
+img.classList.add("news-image");
+img.src = article.image;
+img.alt = article.title;
+
 
   // 5. Create content container
+  const contentDiv = document.createElement("div");
+  contentDiv.classList.add("news-content");
 
   // 6. Create featured label
+const label = document.createElement("span");
+label.classList.add("featured-label");
+label.textContent = "Featured Story";
 
   // 7. Create title
+  const title = document.createElement("h2");
+  title.classList.add("news-title");
+   title.textContent = article.title;
 
   // 8. Create date
+  const date = document.createElement("div");
+  date.classList.add("news-date");
+  date.textContent = article.date;
 
   // 9. Create excerpt
+  const excerpt = document.createElement("p");
+  excerpt.classList.add("news-excert");
+  excerpt.textContent = article.excerpt;
 
   // 10. Create tag
+  const tag = document.createElement("span");
+  tag.classList.add("tag");
+  tag.textContent = article.tag;
 
 
   // 11. Assemble the elements
+   featuredDiv.append(articlelement);
+   
+   articlelement.append(img);
+
+   articlelement.append(contentDiv);
+
+   contentDiv.append(label);
+
+   contentDiv.append(title);
+
+   contentDiv.append(date);
+
+   contentDiv.append(excerpt);
+
+   contentDiv.append(tag);
+  
+ 
+
  
 
   // 12. Append the article container to the news container
+  newsContainer.append(featuredDiv);
+  
+  return newsContainer;
 
 }
+
 
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
@@ -194,3 +244,5 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(`.nav-links a[data-category="${defaultCategory}"]`)
     .classList.add("active"); // Set active class
 });
+
+
