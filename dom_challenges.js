@@ -156,35 +156,65 @@ export function displayArticles(category, featuredArticle = null) {
   
   // Use the provided featured article or default to the first one
   const article = featuredArticle || articles[0];
+  
+  
+
+  
+
 
   // 1. Clear previous content
-
+newsContainer.innerHTML="";
   // 2. Create container elements
-
+const  webMainDiv = document.createElement("div")
+  webMainDiv.className="featured-article"
 
   // 3. Create article element
-
+const webMainArticle=document.createElement("article")
+  webMainArticle.className="news-card featured"
   // 4. Create and setup image
-
+const webMainImage = document.createElement("image")
+ webMainImage.className=("news-image")
+ webMainImage.alt= articles.image
+ webMainImage.src= articles.image
   // 5. Create content container
-
+const webMaineDive =document.createElement("div")
+webMaineDive.className=("news-content")
   // 6. Create featured label
-
+ const webMainSpan =document.createElement("span")
+ webMainSpan.className=("featured-label")
   // 7. Create title
-
+ const webMainTitle = document.createElement("title")
+ webMainTitle.className =("news-title")
+ webMainTitle.textContent = newsData.title
   // 8. Create date
-
+ const webMainDate = document.createElement("data")
+ webMainData.className=("news-date")
   // 9. Create excerpt
+const webMainExcerp = document.createElement("excerp")
+webMainExcerp.textContent =newsData.excerpt
+  // 10. Create tag article
 
-  // 10. Create tag
+ const webSpanTag = DocumentTimeline.createElement("span")
+ webSpanTag .textContent=newsData.span
 
 
-  // 11. Assemble the elements
+  // 11. Assemble the element=s
  
 
   // 12. Append the article container to the news container
 
-}
+} 
+ webMainDiv.append( webMainArticle)
+ webMainDiv.append(webMainImage)
+
+ webMaineDive.append(webMainSpan)
+  webMaineDive.append(webMainTitle) 
+   webMaineDive.append(webMainDate)
+    webMaineDive.append(webMainExcerp)
+     webMaineDive.append( webSpanTag)
+ 
+
+
 
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
