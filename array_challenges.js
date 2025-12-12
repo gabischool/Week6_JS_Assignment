@@ -29,8 +29,8 @@ const movies = [
   for a promotional email campaign.
   
   Steps:
-  1. Use `.map` to create a new array where each item is a string in this format:
-     "[title] - Rating: [rating]/10"
+  1. Use `.map` to create a new array where each item is a in this format:
+     "[title] - Rating: [rating]/10"string 
   2. Log the resulting array.
   
   Expected Output:
@@ -46,7 +46,14 @@ const movies = [
   
   // ✍️ Solve it here ✍️
   
+  /* const title = movies.map((data) => {
+     return data.title
   
+  })
+
+  console.log(title)
+  */
+
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
@@ -66,6 +73,13 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+  
+  /* const HighlyRatedmovies = movies.filter((data) => {
+    if(data.rating >= 8){
+      return data.title
+    }
 
+  })
 
- 
+ console.log(HighlyRatedmovies)
+ */
