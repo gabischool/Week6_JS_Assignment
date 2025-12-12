@@ -133,7 +133,7 @@ export const newsData = {
 };
 
 // html structure
-{
+
   /* <div class="featured-article">
     <article class="news-card featured">
       <img class="news-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="GPT-5 Announcement">
@@ -146,46 +146,69 @@ export const newsData = {
       </div>
     </article>
   </div> */
-}
 
 // YOUR TASK: Complete this function using the html structure in the htmlstructure.html file
 
-export function displayArticles(category, featuredArticle = null) {
+export function displayArticles(category, featuredArticle = null){
   const newsContainer = document.querySelector("#news-container");
   const articles = newsData[category];
-  
-  // Use the provided featured article or default to the first one
+  // Use the provided featured arrticle or default to the first one
   const article = featuredArticle || articles[0];
 
-  // 1. Clear previous content
+const newsGrid = document.querySelectorAll('.news-grid')[1]
+console.log("newsGrid:", newsGrid)
 
+// 1. Clear previous content
+  newsGrid.innerHTML = ""
   // 2. Create container elements
-
-
+  const newsGridMainDiv = document.createElement("div")
+  newsGridMainDiv.className = "featured-article"
   // 3. Create article element
-
+   const articleElement = document.createElement("article")
+   articleElement.className = ("news-card featured")
   // 4. Create and setup image
-
+  const newsimage = document.createElement("img")
+  newsimage.className = "news-image"
+  newsimage.alt = article.title
+  newsimage.src = article.image
   // 5. Create content container
-
+  const newsContent = document.createElement("div") 
+  newsContent.className = "news-conten"
   // 6. Create featured label
-
+  const newsFeature = document.createElement("span")
+  newsFeature.className = "featured-label"
+  newsFeature.textContent = "Featured Story"
   // 7. Create title
-
+  const newsTitle = document.createElement("h2")
+  newsTitle.className = "news-title"
+  newsTitle.textContent = article.title
   // 8. Create date
-
+  const newsDate = document.createElement("div")
+  newsDate.className = "news-date"
+  newsDate.textContent = article.date
   // 9. Create excerpt
-
+  const newsExcerpt = document.createElement("p")
+  newsExcerpt.className = "news-excerpt"
+  newsExcerpt.textContent = article.excerpt
   // 10. Create tag
-
-
+  const newsTag = document.createElement("span")
+  newsTag.className = "tag"
+  newsTag.textContent = article.tag
   // 11. Assemble the elements
- 
+  newsGridMainDiv.append(articleElement)
+  newsGridMainDiv.append(newsContent)
 
+  articleElement.append(newsimage)
+
+  newsContent.append(newsFeature)
+  newsContent.append(newsTitle)
+  newsContent.append(newsDate)
+  newsContent.append(newsExcerpt)
+  newsContent.append(newsTag)
   // 12. Append the article container to the news container
-
-}
-
+  newsGrid.append(newsGridMainDiv)
+    return articles
+}  
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
   const defaultCategory = "Latest News"; // Define the default category
@@ -194,3 +217,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(`.nav-links a[data-category="${defaultCategory}"]`)
     .classList.add("active"); // Set active class
 });
+
