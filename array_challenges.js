@@ -45,12 +45,16 @@ const movies = [
   */
   
   // ✍️ Solve it here ✍️
+ 
+const movieMania = movies.map((movieData) => {
+  return `${movieData.title} rating :${movieData.rating}/10`;
+});
   
-  
+console.log(movieMania);
   /*
   Task 2: Find Highly Rated Movies 🌟 (`.filter`)
   
-  Your customers have requested a list of **highly rated movies** 
+  Your customers have requested a list of **highly rated movies** rating
   (movies with a rating of 8.0 or higher).
   
   Steps:
@@ -67,5 +71,8 @@ const movies = [
   
   // ✍️ Solve it here ✍️
 
-
+const ratedMovie = movies.filter((item) => {
+  return item.rating >= 8.0;
+})
+console.log(ratedMovie)
  

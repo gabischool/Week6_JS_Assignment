@@ -171,13 +171,13 @@
   }
   
   .news-date {
-    color: #64748b;
+    color:#64748b;
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
   }
   
   .news-excerpt {
-    color: #475569;
+    color:#475569;
     line-height: 1.5;
     margin: 0;
   }

@@ -155,36 +155,65 @@ export function displayArticles(category, featuredArticle = null) {
   const articles = newsData[category];
   
   // Use the provided featured article or default to the first one
-  const article = featuredArticle || articles[0];
+  const article = featuredArticle|| articles[0];
 
   // 1. Clear previous content
-
+  newsContainer.innerHTML = "";
   // 2. Create container elements
-
+  const featuredMainArticle  = document.createElement("div")
+  featuredMainArticle.className = "featured-article"
 
   // 3. Create article element
-
+  const  cardFeatured = document.createElement("article")
+  cardFeatured.className="news-card featured"
   // 4. Create and setup image
-
+  const image = document.createElement("img")
+  image.className = "news-image"
+  image.alt = article.title
+  image.src = article.image
   // 5. Create content container
-
+  const featuredContainer = document.createElement("div")
+  featuredContainer.className ="news-content"
   // 6. Create featured label
+  const featuredStory = document.createElement("span")
+  featuredStory.className = "featured-label"
 
   // 7. Create title
-
+  const announces = document.createElement("h2")
+  announces.className = "news-title"
+  announces.textContent = article.title
+  
   // 8. Create date
-
+  const date = document.createElement("div")
+  date.className = "news-date"
+  date.textContent =article.date
   // 9. Create excerpt
-
+  const excerpt = document.createElement("p")
+  excerpt.className = "news-excerpt"
+  excerpt.textContent = article.excerpt
   // 10. Create tag
-
-
+  const featuresSpan = document.createElement("span")
+  featuresSpan.className = "tag"
+  featuresSpan.textContent = article.tag
   // 11. Assemble the elements
- 
+  cardFeatured.append(image)
+  cardFeatured.append(featuredContainer)
+  
+  featuredContainer.append(featuredStory)
+  featuredContainer.append(announces)
+  featuredContainer.append(date)
+  featuredContainer.append(excerpt)
+  featuredContainer.append(featuresSpan)
+  
 
+  featuredMainArticle.append(cardFeatured)
+  
   // 12. Append the article container to the news container
-
+  
+  newsContainer.append(featuredMainArticle)
 }
+  
+ displayArticles("Latest News")
 
 // DO NOT CHANGE THIS
 document.addEventListener("DOMContentLoaded", () => {
