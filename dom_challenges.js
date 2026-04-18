@@ -158,32 +158,54 @@ export function displayArticles(category, featuredArticle = null) {
   const article = featuredArticle || articles[0];
 
   // 1. Clear previous content
-
+newsContainer.innerHTML = "";
   // 2. Create container elements
-
+ const featuredArticleContainer = document.createElement("div");
+ featuredArticleContainer.classList.add("featured-article");
 
   // 3. Create article element
-
+ const articleElement = document.createElement("article");
+ articleElement.classList.add("news-card", "featured");
   // 4. Create and setup image
-
+  const imageElement = document.createElement("img");
+  imageElement.classList.add("news-image");
+  imageElement.src = article.image;
+  imageElement.alt = article.title;
   // 5. Create content container
-
+  const contentContainer = document.createElement("div");
+  contentContainer.classList.add("news-content");
   // 6. Create featured label
-
+  const featuredLabel = document.createElement("span");
+  featuredLabel.classList.add("featured-label");
+  featuredLabel.textContent = "Featured Story";
   // 7. Create title
-
+  const titleElement = document.createElement("h2");
+  titleElement.classList.add("news-title");
+  titleElement.textContent = article.title;
   // 8. Create date
-
+  const dateElement = document.createElement("div");
+  dateElement.classList.add("news-date");
+  dateElement.textContent = article.date;
   // 9. Create excerpt
-
+  const excerptElement = document.createElement("p");
+  excerptElement.classList.add("news-excerpt");
+  excerptElement.textContent = article.excerpt;
   // 10. Create tag
-
+  const tagElement = document.createElement("span");
+  tagElement.classList.add("tag");
+  tagElement.textContent = article.tag;
 
   // 11. Assemble the elements
- 
+  contentContainer.appendChild(featuredLabel);
+  contentContainer.appendChild(titleElement);
+  contentContainer.appendChild(dateElement);
+  contentContainer.appendChild(excerptElement);
+  contentContainer.appendChild(tagElement);
 
   // 12. Append the article container to the news container
-
+  articleElement.appendChild(imageElement);
+  featuredArticleContainer.appendChild(articleElement);
+  newsContainer.appendChild(featuredArticleContainer);
 }
 
 // DO NOT CHANGE THIS
