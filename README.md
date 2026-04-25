@@ -1,77 +1,107 @@
-# Week 6: Advanced Array Methods and DOM Manipulation
+# Week 6 — `.map`, `.filter` & the DOM 🛍️
 
-This week's assignment focuses on **advanced array methods** (`.map`, `.filter`) and **DOM manipulation**. You'll work on two sets of challenges: **array challenges** and **DOM challenges**. Follow the instructions below to complete the tasks.
+You're going to build a tiny **product catalog** — a single page that lists products from an array and lets the user filter by what's on sale. This is the same pattern every e-commerce site uses.
 
----
+## Setup
 
-## 🚀 Assignment Instructions
+1. **Fork** this repo to your account.
+2. Clone it locally and open in your editor.
+3. Open `index.html` in the browser.
+4. Edit `challenges.js`. Refresh the page to see changes.
 
-### 1. **Set Up Your Project**
+## What you'll build
 
-- Fork this repository.
-- Clone your forked version to your computer.
-- Create a new branch:
+```
+┌─────────────────────────────────────┐
+│   Gabi Store                        │
+│                                     │
+│   [ All Products ]  [ On Sale ]     │
+│                                     │
+│   ┌────────┐ ┌────────┐ ┌────────┐  │
+│   │ Item 1 │ │ Item 2 │ │ Item 3 │  │
+│   │  $25   │ │  $40   │ │  $15   │  │
+│   └────────┘ └────────┘ └────────┘  │
+└─────────────────────────────────────┘
+```
 
-  ```bash
-  git checkout -b <your-firstname-lastname>
-  ```
+The HTML, CSS, and product data are already written. **Your job is the JavaScript** — about 30 lines total.
 
-- All your work should be done in the provided JavaScript files.
+## Tasks
 
-⚠️ **Warning**:
+### Task 1 — Get the Data with `.map()` 🗺️
 
-- **Do not change or touch the `index.html` file**
-- All modifications should be done in `array_challenges.js`, `dom_challenges.js` files only.
+Look at the `products` array in `challenges.js`. Each product is an object with `name`, `price`, `onSale`, and `image` (a URL to a product photo from Unsplash).
 
----
+Write a function `productsToHTML(productList)` that uses `.map()` to turn an array of products into HTML strings. Each card should look like:
 
-### 2. **Complete the Array Challenges**
+```html
+<div class="card">
+  <img src="PRODUCT_IMAGE_URL" alt="PRODUCT_NAME" />
+  <h3>Product Name</h3>
+  <p class="price">$25</p>
+</div>
+```
 
-- Open the `array_challenges.js` file.
-- Follow the tasks to:
-  1. Use `.map` to create and format a new array of movie titles and ratings.
-  2. Use `.filter` to find highly-rated movies (rating >= 8.0).
-- Log the results of each task in the console.
-
----
-
-### 3. **Complete the DOM Challenges**
-
-- Open the `dom_challenges.js` file.
-- Follow the tasks to:
-  1. Build the `displayArticles` function to dynamically display articles from the `newsData` object based on their category.
-- Use the GIF below as a reference to see how the final website should look.
-
----
-
-### 🖼️ Reference GIF
-
-Below is a preview of how your DOM challenge should look after completion:
-
-![GabiNews Website Preview](./gabinews.gif)
+> 💡 Use `.map()` followed by `.join("")` to turn the array of strings into one big string.
 
 ---
 
-### 4. **Submit Your Work**
+### Task 2 — Show All Products on the Page 📺
 
-- Save your progress regularly:
+Find the `<div id="product-list">` element in the page using `document.querySelector`.
 
-  ```bash
-  git add .
-  git commit -m "Completed Week 6 assignment tasks"
-  git push -u origin <your-branch-name>
-  ```
+Set its `innerHTML` to the result of `productsToHTML(products)`.
 
-- Once done, submit your repository link through the student portal.
+When you refresh the page, you should see all 6 products as cards.
 
 ---
 
-## STRETCH GOALS
+### Task 3 — Filter Products on Sale 🏷️
 
-If you finish the main tasks early, consider these stretch goals:
+There are two buttons in the HTML: `#btn-all` and `#btn-sale`.
 
-1. Create footer area with DOM
-2. Find free and open API with news articles and use that API instead of the provided data.
-3. Put the website online using either Netlify or GitHub Pages.
+- **All Products button** → show every product
+- **On Sale button** → show only products where `onSale` is `true`
 
-Good luck, and enjoy coding! 🚀
+Use `.addEventListener("click", ...)` for each button. Use `.filter()` to get the right list, then re-render.
+
+> 💡 You'll write almost the same code twice — that's fine for now. Programmers refactor later.
+
+---
+
+### Task 4 — Highlight the Active Button ✨
+
+When the user clicks a button, give it the class `active` and remove `active` from the other button.
+
+Hint:
+```js
+btnAll.classList.remove("active");
+btnSale.classList.add("active");
+```
+
+The CSS already styles `.active` to look different (blue background).
+
+---
+
+## ✅ When you're done
+
+- All 6 products show by default
+- Clicking **On Sale** shows only the sale items
+- Clicking **All Products** shows everything again
+- The active button is visually highlighted
+
+## Submitting
+
+```bash
+git add .
+git commit -m "Complete Week 6 product catalog"
+git push
+```
+
+Submit your repo link.
+
+## 🚀 Stretch (optional)
+
+- Add a third filter button: **Under $30**
+- When `onSale` is true, add a red "SALE" badge to that product card
+- Add a search box that filters products by name as you type (use the `input` event)
