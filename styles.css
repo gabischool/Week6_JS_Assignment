@@ -1,4 +1,4 @@
-/* Week 6 — Product Catalog. CSS is done for you. Focus on JS. */
+/* Week 6 — Product Catalog */
 
 * { box-sizing: border-box; }
 
@@ -24,6 +24,40 @@ body {
 .page-header p {
   margin: 0;
   color: #6b7280;
+}
+
+/* ---- Cart panel ---- */
+.cart {
+  max-width: 960px;
+  margin: 0 auto 28px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.cart h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #111827;
+}
+
+.cart-items {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cart-items li {
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
 }
 
 .filters {
@@ -99,5 +133,24 @@ main {
   font-size: 22px;
   font-weight: 800;
   color: #6366f1;
+  margin: 0 16px 14px;
+}
+
+/* Add to Cart button */
+.add-btn {
+  display: inline-block;
   margin: 0 16px 18px;
+  padding: 9px 16px;
+  background: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #4f46e5;
 }
