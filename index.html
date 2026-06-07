@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabi Store — Week 6</title>
+  <title>Gabi Store — Week 6 </title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,16 +13,20 @@
     <p>A tiny product catalog</p>
   </header>
 
-  <nav class="filters">
+  <!-- Cart panel — your JS fills in the count and the list -->
+  <section class="cart" aria-label="Shopping cart">
+    <h2>🛒 Cart (<span id="cart-count">0</span>)</h2>
+    <ul id="cart-items" class="cart-items"></ul>
+  </section>
+
+  <nav id="filters" class="filters">
     <button id="btn-all" class="filter-btn active">All Products</button>
     <button id="btn-sale" class="filter-btn">On Sale</button>
   </nav>
 
   <main>
-    <!-- Your product cards will be inserted here -->
-    <div id="product-list" class="product-list">
-      <!-- empty for now -->
-    </div>
+    <!-- Product cards get inserted here by challenges.js -->
+    <div id="product-list" class="product-list"></div>
   </main>
 
   <script src="challenges.js"></script>
