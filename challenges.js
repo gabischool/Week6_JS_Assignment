@@ -1,12 +1,14 @@
 /* ============================================================
-   Week 6 — Product Catalog
+   Week 6 — Product Catalog + Cart
    ------------------------------------------------------------
-   Build a small product list that can be filtered.
-   The data and HTML structure are ready — focus on the JS.
+   Three concepts, nothing more:
+     • The DOM   — select elements, then change the page
+     • Callbacks — handing a function to another function
+     • .map() & .filter()  — build cards, then narrow the list
    ============================================================ */
 
 
-// The product data — DO NOT edit this array
+// The product data — each product is a simple object.
 const products = [
   {
     name: "T-Shirt",
@@ -48,58 +50,109 @@ const products = [
 
 
 /* ------------------------------------------------------------
-   Task 1: productsToHTML(productList) 🗺️
-
-   Use .map() to turn an array of products into an array of
-   HTML strings. Then .join("") to combine them into one string.
-
-   Each card should look like:
-     <div class="card">
-       <img src="PRODUCT_IMAGE_URL" alt="PRODUCT_NAME" />
-       <h3>T-Shirt</h3>
-       <p class="price">$25</p>
-     </div>
+   Task 1 ✅ — Select the elements once (the DOM) - DONE!
    ------------------------------------------------------------ */
 
-function productsToHTML(productList) {
-  // ✍️ Solve it here ✍️
+const productList = document.querySelector("#product-list");
+const filters     = document.querySelector("#filters");
+const btnAll      = document.querySelector("#btn-all");
+const btnSale     = document.querySelector("#btn-sale");
+const cartCount   = document.querySelector("#cart-count");
+const cartItems   = document.querySelector("#cart-items");
+
+
+// The cart starts empty. We only ever add to it.
+let cart = [];
+
+
+/* ------------------------------------------------------------
+   Task 2 ✍️ — productsToHTML(list)   [ .map() ]
+
+   Turn the array of products into one big HTML string.
+   Each card has an "Add to Cart" button that remembers its
+   product name in data-name.
+
+   Use this HTML inside the productsToHTML function:
+
+    <div class="card">
+      <img src="${product.image}" alt="${product.name}" />
+      <h3>${product.name}</h3>
+      <p class="price">$${product.price}</p>
+      <button class="add-btn" data-name="${product.name}">Add to Cart 🛒</button>
+    </div>
+   ------------------------------------------------------------ */
+
+function productsToHTML(list) {
+  // .map() each product to a card string, then .join("") them
+  // into ONE string and return it.
 }
 
 
+/* ------------------------------------------------------------
+   Task 3 ✍️ — Filter buttons   [ addEventListener + .filter() ]
+
+   ONE listener on the whole filter bar. When a button is
+   clicked: work out which products to show, put them on the
+   page, and light up the clicked button with classList.toggle().
+
+   The function you hand to .filter() is a CALLBACK — .filter
+   runs it on every product and keeps the ones that return true.
+   ------------------------------------------------------------ */
+
+filters.addEventListener("click", (event) => {
+  const onSaleOnly = event.target.id === "btn-sale";
+
+  // Step 1: Filter the products based on onSaleOnly
+  let visible = products;
+  if (onSaleOnly) {
+    visible = products.filter((product) => product.onSale);
+  }
+
+  // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
+
+  // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
+
+});
 
 
 /* ------------------------------------------------------------
-   Task 2: Show all products on page load 📺
+   Task 4 ✅ — renderCart()   [ .map() + the DOM ] - DONE!
 
-   1. Find <div id="product-list"> with document.querySelector
-   2. Set its innerHTML to productsToHTML(products)
+   Show how many items are in the cart, and list their names.
    ------------------------------------------------------------ */
 
-// ✍️ Solve it here ✍️
-
-
+function renderCart() {
+  cartCount.textContent = cart.length;
+  cartItems.innerHTML = cart
+    .map((name) => `<li>${name}</li>`)
+    .join("");
+}
 
 
 /* ------------------------------------------------------------
-   Task 3: Filter buttons 🏷️
+   Task 5 ✍️ — Add to Cart   [ ONE addEventListener ]
 
-   Listen for clicks on #btn-all and #btn-sale.
-   - All → show every product
-   - Sale → show only products where onSale is true (use .filter())
+   Instead of adding a listener to every button, we add ONE
+   listener to the whole product list. When something inside it
+   is clicked, we check: was it an Add to Cart button? If so,
+   read its data-name and push it into the cart.
+
+   event.target is the exact thing the user clicked.
    ------------------------------------------------------------ */
 
-// ✍️ Solve it here ✍️
+productList.addEventListener("click", (event) => {
+   // Step 1: Check if the clicked element has the class "add-btn"
 
+    // Step 2: If it does, read the product name from data-name and push it into the cart array
 
+    // Step 3: Call renderCart() to update the cart display
+
+});
 
 
 /* ------------------------------------------------------------
-   Task 4: Highlight the active button ✨
-
-   When a filter button is clicked, give it the class "active"
-   and remove "active" from the other one.
-
-   Hint: btn.classList.add("active") / .remove("active")
+   First paint — show all products and draw the empty cart.
    ------------------------------------------------------------ */
 
-// ✍️ Solve it here ✍️ (or merge into Task 3's click handlers)
+productList.innerHTML = productsToHTML(products);
+renderCart();
