@@ -83,10 +83,21 @@ let cart = [];
    ------------------------------------------------------------ */
 
 function productsToHTML(list) {
-  // .map() each product to a card string, then .join("") them
-  // into ONE string and return it.
+  return list
+    .map((product) => {
+      return `
+        <div class="card">
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p class="price">$${product.price}</p>
+          <button class="add-btn" data-name="${product.name}">
+            Add to Cart 🛒
+          </button>
+        </div>
+      `;
+    })
+    .join("");
 }
-
 
 /* ------------------------------------------------------------
    Task 3 ✍️ — Filter buttons   [ addEventListener + .filter() ]
@@ -107,14 +118,18 @@ filters.addEventListener("click", (event) => {
   if (onSaleOnly) {
     visible = products.filter((product) => product.onSale);
   }
+// Step 2: show products
+  productList.innerHTML = productsToHTML(visible);
 
-  // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
-
-  // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
-
+// Step 3: button active state
+  btnAll.classList.remove("active");
+  btnSale.classList.remove("active");          
+    if (onSaleOnly) {
+    btnSale.classList.add("active");
+  } else {
+    btnAll.classList.add("active");
+  }
 });
-
-
 /* ------------------------------------------------------------
    Task 4 ✅ — renderCart()   [ .map() + the DOM ] - DONE!
 
@@ -139,15 +154,14 @@ function renderCart() {
 
    event.target is the exact thing the user clicked.
    ------------------------------------------------------------ */
-
 productList.addEventListener("click", (event) => {
-   // Step 1: Check if the clicked element has the class "add-btn"
-
-    // Step 2: If it does, read the product name from data-name and push it into the cart array
-
-    // Step 3: Call renderCart() to update the cart display
-
+  if (event.target.classList.contains("add-btn")) {
+    const name = event.target.dataset.name;
+    cart.push(name);
+    renderCart();
+  }
 });
+
 
 
 /* ------------------------------------------------------------
