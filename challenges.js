@@ -1,11 +1,4 @@
-/* ============================================================
-   Week 6 — Product Catalog + Cart
-   ------------------------------------------------------------
-   Three concepts, nothing more:
-     • The DOM   — select elements, then change the page
-     • Callbacks — handing a function to another function
-     • .map() & .filter()  — build cards, then narrow the list
-   ============================================================ */
+
 
 
 // The product data — each product is a simple object.
@@ -49,9 +42,7 @@ const products = [
 ];
 
 
-/* ------------------------------------------------------------
-   Task 1 ✅ — Select the elements once (the DOM) - DONE!
-   ------------------------------------------------------------ */
+
 
 const productList = document.querySelector("#product-list");
 const filters     = document.querySelector("#filters");
@@ -65,61 +56,47 @@ const cartItems   = document.querySelector("#cart-items");
 let cart = [];
 
 
-/* ------------------------------------------------------------
-   Task 2 ✍️ — productsToHTML(list)   [ .map() ]
-
-   Turn the array of products into one big HTML string.
-   Each card has an "Add to Cart" button that remembers its
-   product name in data-name.
-
-   Use this HTML inside the productsToHTML function:
-
-    <div class="card">
-      <img src="${product.image}" alt="${product.name}" />
-      <h3>${product.name}</h3>
-      <p class="price">$${product.price}</p>
-      <button class="add-btn" data-name="${product.name}">Add to Cart 🛒</button>
-    </div>
-   ------------------------------------------------------------ */
-
-function productsToHTML(list) {
-  // .map() each product to a card string, then .join("") them
-  // into ONE string and return it.
-}
 
 
-/* ------------------------------------------------------------
-   Task 3 ✍️ — Filter buttons   [ addEventListener + .filter() ]
-
-   ONE listener on the whole filter bar. When a button is
-   clicked: work out which products to show, put them on the
-   page, and light up the clicked button with classList.toggle().
-
-   The function you hand to .filter() is a CALLBACK — .filter
-   runs it on every product and keeps the ones that return true.
-   ------------------------------------------------------------ */
-
-filters.addEventListener("click", (event) => {
-  const onSaleOnly = event.target.id === "btn-sale";
-
-  // Step 1: Filter the products based on onSaleOnly
-  let visible = products;
-  if (onSaleOnly) {
-    visible = products.filter((product) => product.onSale);
+   function productsToHTML(list) {
+    const cards = list.map((product) => {
+      return `
+        <div class="card">
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p class="price">$${product.price}</p>
+          <button class="add-btn" data-name="${product.name}">
+            Add to Cart 🛒
+          </button>
+        </div>
+        
+      `;
+    });
+  
+    const html = cards.join("");
+  
+    return html;
   }
 
-  // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
+  filters.addEventListener("click", (event) => {
+    const onSaleOnly = event.target.id === "btn-sale";
+  
+    let visible = products;
+  
+    if (onSaleOnly) {
+      visible = products.filter((product) => product.onSale);
+    }
+  
+    // Step 2
+    productList.innerHTML = productsToHTML(visible);
+  
+    // Step 3
+    btnSale.classList.toggle("active", onSaleOnly);
+    btnAll.classList.toggle("active", !onSaleOnly);
+  
+  });
 
-  // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
 
-});
-
-
-/* ------------------------------------------------------------
-   Task 4 ✅ — renderCart()   [ .map() + the DOM ] - DONE!
-
-   Show how many items are in the cart, and list their names.
-   ------------------------------------------------------------ */
 
 function renderCart() {
   cartCount.textContent = cart.length;
@@ -129,30 +106,20 @@ function renderCart() {
 }
 
 
-/* ------------------------------------------------------------
-   Task 5 ✍️ — Add to Cart   [ ONE addEventListener ]
 
-   Instead of adding a listener to every button, we add ONE
-   listener to the whole product list. When something inside it
-   is clicked, we check: was it an Add to Cart button? If so,
-   read its data-name and push it into the cart.
-
-   event.target is the exact thing the user clicked.
-   ------------------------------------------------------------ */
+   
 
 productList.addEventListener("click", (event) => {
    // Step 1: Check if the clicked element has the class "add-btn"
+    if (event.target.classList.contains("add-btn"))
 
     // Step 2: If it does, read the product name from data-name and push it into the cart array
+    cart.push(event.target.dataset.name);
 
     // Step 3: Call renderCart() to update the cart display
-
+    renderCart();
 });
 
-
-/* ------------------------------------------------------------
-   First paint — show all products and draw the empty cart.
-   ------------------------------------------------------------ */
 
 productList.innerHTML = productsToHTML(products);
 renderCart();
