@@ -4,7 +4,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f4f6fb;
+  background: #d0d4df;
   color: #1f2937;
   margin: 0;
   padding: 32px 20px 60px;
@@ -118,7 +118,7 @@ main {
 .card img {
   display: block;
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   background: #f3f4f6;
 }
