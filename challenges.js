@@ -172,7 +172,7 @@ productList.addEventListener("click", (event) => {
   cart.push(productName)
   
 
-
+ 
   // Step 3: Call renderCart() to update the cart display
 
   renderCart(cart)
