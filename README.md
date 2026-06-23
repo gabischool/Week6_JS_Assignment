@@ -114,3 +114,5 @@ Then open a pull request from your branch and submit the link.
 - Add a third filter button, **Under $30**, that keeps only products cheaper than $30. Same pattern as the On Sale filter, just a different test.
 - Show a total price next to the cart count by adding up the prices of everything in the cart.
 - Add a **Clear cart** button that empties the cart and refreshes the display.
+
+.........
