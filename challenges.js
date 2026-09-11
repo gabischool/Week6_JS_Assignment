@@ -49,10 +49,6 @@ const products = [
 ];
 
 
-/* ------------------------------------------------------------
-   Task 1 ✅ — Select the elements once (the DOM) - DONE!
-   ------------------------------------------------------------ */
-
 const productList = document.querySelector("#product-list");
 const filters     = document.querySelector("#filters");
 const btnAll      = document.querySelector("#btn-all");
@@ -66,7 +62,12 @@ let cart = [];
 
 
 /* ------------------------------------------------------------
+   Thttps://github.com/aminaharet1/Week5_JS_Assignment/blob/main/challenges.js
+
+
+/* ------------------------------------------------------------
    Task 2 ✍️ — productsToHTML(list)   [ .map() ]
+
 
    Turn the array of products into one big HTML string.
    Each card has an "Add to Cart" button that remembers its
@@ -83,10 +84,19 @@ let cart = [];
    ------------------------------------------------------------ */
 
 function productsToHTML(list) {
-  // .map() each product to a card string, then .join("") them
-  // into ONE string and return it.
+  return list
+    .map((product) => `
+      <div class="card">
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p class="price">$${product.price}</p>
+        <button class="add-btn" data-name="${product.name}">
+          Add to Cart 🛒
+        </button>
+      </div>
+    `)
+    .join("");
 }
-
 
 /* ------------------------------------------------------------
    Task 3 ✍️ — Filter buttons   [ addEventListener + .filter() ]
@@ -100,18 +110,23 @@ function productsToHTML(list) {
    ------------------------------------------------------------ */
 
 filters.addEventListener("click", (event) => {
+
   const onSaleOnly = event.target.id === "btn-sale";
 
-  // Step 1: Filter the products based on onSaleOnly
   let visible = products;
+
   if (onSaleOnly) {
     visible = products.filter((product) => product.onSale);
   }
 
   // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
+productList.innerHTML = productsToHTML(visible);
+
 
   // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
 
+  btnAll.classList.toggle("active", !onSaleOnly);
+  btnSale.classList.toggle("active", onSaleOnly);
 });
 
 
@@ -126,6 +141,8 @@ function renderCart() {
   cartItems.innerHTML = cart
     .map((name) => `<li>${name}</li>`)
     .join("");
+    
+
 }
 
 
@@ -141,13 +158,23 @@ function renderCart() {
    ------------------------------------------------------------ */
 
 productList.addEventListener("click", (event) => {
+
+  if (event.target.classList.contains("add-btn")) {
+    const name = event.target.dataset.name;
+
+    cart.push(name);
+
+    renderCart();
+  }
+
+});
+
    // Step 1: Check if the clicked element has the class "add-btn"
 
     // Step 2: If it does, read the product name from data-name and push it into the cart array
 
     // Step 3: Call renderCart() to update the cart display
 
-});
 
 
 /* ------------------------------------------------------------
@@ -156,3 +183,4 @@ productList.addEventListener("click", (event) => {
 
 productList.innerHTML = productsToHTML(products);
 renderCart();
+ 
