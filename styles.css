@@ -1,9 +1,12 @@
 /* Week 6 — Product Catalog */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #f4f6fb;
   color: #1f2937;
   margin: 0;
@@ -26,7 +29,7 @@ body {
   color: #6b7280;
 }
 
-/* ---- Cart panel ---- */
+/* Cart panel */
 .cart {
   max-width: 960px;
   margin: 0 auto 28px;
@@ -100,14 +103,16 @@ main {
   gap: 16px;
 }
 
-/* Product card — your .map() will produce these */
+/* Product cards */
 .card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .card:hover {
