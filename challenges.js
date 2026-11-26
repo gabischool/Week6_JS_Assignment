@@ -85,6 +85,16 @@ let cart = [];
 function productsToHTML(list) {
   // .map() each product to a card string, then .join("") them
   // into ONE string and return it.
+  return list.map((product) => {
+    return `
+      <div class="card">
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p class="price">$${product.price}</p>
+        <button class="add-btn" data-name="${product.name}">Add to Cart 🛒</button>
+      </div>
+    `;
+  }).join("");
 }
 
 
@@ -109,9 +119,11 @@ filters.addEventListener("click", (event) => {
   }
 
   // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
+  productList.innerHTML = productsToHTML(visible);
 
   // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
-
+  btnAll.classList.toggle("active", !onSaleOnly);
+  btnSale.classList.toggle("active", onSaleOnly);
 });
 
 
@@ -142,11 +154,14 @@ function renderCart() {
 
 productList.addEventListener("click", (event) => {
    // Step 1: Check if the clicked element has the class "add-btn"
-
+  if (event.target.classList.contains("add-btn")) {
     // Step 2: If it does, read the product name from data-name and push it into the cart array
+    const productName = event.target.dataset.name;
+    cart.push(productName);
 
     // Step 3: Call renderCart() to update the cart display
-
+    renderCart();
+  }
 });
 
 
