@@ -120,9 +120,10 @@ filters.addEventListener("click", (event) => {
     }
 
     // Step 2: Show the remaining products on the page with productsToHTML function and innerHTML
-
+       productList.innerHTML = productsToHTML(visible);
     // Step 3: Toggle the "active" class on the buttons to show which one is selected, either btnAll or btnSale
-
+    btnAll.classList.toggle("active", !onSaleOnly);
+    btnSale.classList.toggle("active", onSaleOnly);
 });
 
 
